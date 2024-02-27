@@ -1,15 +1,15 @@
 <?php
 $login = false;
-require_once "include/templates/headerEstudiantes.php";
+require_once "include/templates/headerRutina.php";
 $errores = array();
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     require_once "include/functions/recoge.php";
     $id = recogeGet("id");
 
-    require_once "DAL/estudiante.php";
+    require_once "DAL/Rutina.php";
     //sanitización de la información en php.net
-    $query = "select id, nombre, correo, telefono, password from estudiante where id = '$id'"; //sujeto a inyección de código
+    $query = "select id, nombre, correo, telefono, password from rutina where id = '$id'"; //sujeto a inyección de código
 
     $mySession = getObject($query);
 
@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($nombreOk && $correoOk && $telefonoOk) {
         // echo "Ingresar datos a la base de datos";
         require_once "DAL/estudiante.php";
-        if (IngresarEstudiante($nombre, $correo, $telefono)) {
+        if (IngresarRutina($nombre, $correo, $telefono)) {
             // echo "Ingreso a base de datos correcto";
             header("Location: consulta-datos.php?ingreso=1");
         } else {
