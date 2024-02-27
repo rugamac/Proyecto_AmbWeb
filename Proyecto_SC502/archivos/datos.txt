@@ -1,0 +1,7 @@
+Eduardo,egonzalez20725@ufide.ac.cr,12345679
+Sophia,sgonzalez20725@ufide.ac.cr,87654321
+Sophia,sgonzalez20725@ufide.ac.cr,87654321
+Sophia,sgonzalez20725@ufide.ac.cr,87654321
+Sophia,sgonzalez20725@ufide.ac.cr,87654321
+Eduardo,ed@ufide.ac.cr,12345678
+Eduardo,ed@ufide.ac.cr,12345678
