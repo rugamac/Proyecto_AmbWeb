@@ -41,18 +41,18 @@ if ($db->connect_error) {
     die("Error de conexión: " . $db->connect_error);
 }
 
-$reservaCRUD = new ReservaCRUD($db);
+$reserva = new Reserva($db);
 
 // Crear una reserva
-$reservaCRUD->crearReserva("2024-02-28", "10:00", "Juan", "juan@example.com");
+$reserva->crearReserva("2024-02-28", "10:00", "Juan", "juan@example.com");
 
 // Obtener una reserva por su ID
-$reservaObtenida = $reservaCRUD->obtenerReserva(1);
+$reservaObtenida = $reserva->obtenerReserva(1);
 print_r($reservaObtenida);
 
 // Actualizar una reserva
-$reservaCRUD->actualizarReserva(1, "2024-02-28", "11:00", "Juan Perez", "juan.perez@example.com");
+$reserva->actualizarReserva(1, "2024-02-28", "11:00", "Juan Perez", "juan.perez@example.com");
 
 // Eliminar una reserva
-$reservaCRUD->eliminarReserva(1);
+$reserva->eliminarReserva(1);
 ?>
