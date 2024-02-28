@@ -27,3 +27,33 @@ CREATE TABLE `Gimnasio`.`prueba`
 `telefono` VARCHAR(50) NOT NULL , 
 `password` VARCHAR(255) NOT NULL , 
 PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+create table IF NOT EXISTS agendaEntrenadora
+(
+    sesion_id INT(11) NOT NULL AUTO_INCREMENT, 
+    diaEntrenamiento DATE NOT NULL,
+    user_id INT(11) NOT NULL AUTO_INCREMENT, 
+    PRIMARY KEY(sesion_id)
+);
+
+create table IF NOT EXISTS fechaPago
+(
+    pago_ID INT(11) NOT NULL AUTO_INCREMENT, 
+    diaPago DATE NOT NULL,
+    user_id INT(11) NOT NULL AUTO_INCREMENT,
+    pagoTotal INT(11) NOT NULL,
+    PRIMARY KEY(pago_ID)
+);
+
+create table IF NOT EXISTS antecedentesMedicos
+(
+    lesiones VARCHAR, 
+    medicamentos VARCHAR, 
+    tiempoActividad VARCHAR,
+    embarazos VARCHAR,
+    cirugias VARCHAR,
+    alturaMetros INT(5) NOT NULL,
+    pesoKilos INT(5) NOT NULL,
+    user_id INT(11) NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY(user_id)
+);
