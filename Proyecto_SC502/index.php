@@ -32,26 +32,19 @@
         <table class="table table-light table-hover display-6">
             <thead class="table-success">
                 <tr>
-                    <th scope="col"></th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Suscripcion</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
+                <tr> 
                     <td>Mark</td>
                     <td>desactivado</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>desactivado</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>desactivado</td>
+                    <td>
+                        <a href="" >Perfil</a>
+                        <a href="" >Sistema</a>
+                    </td>
                 </tr>
             </tbody>
         </table>
