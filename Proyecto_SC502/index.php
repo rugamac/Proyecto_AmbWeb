@@ -1,25 +1,66 @@
-<?php
-// include_once "include/templates/header1.php";
-// require "include/templates/header1.php";
-require_once "include/templates/header.php";
-?>
+<!DOCTYPE html>
+<html lang="en">
 
-<main class="contenedor">
-    <!-- novalidate -->
-    <form action="procesar-formulario.php" method="post">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <?php 
-            
-            require_once "include/templates/datosPersonales.php"; 
-        
-            require_once "include/templates/intereses.php"; 
-        ?>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
 
-        <button type="submit">Procesar información</button>
-    </form>
-</main>
+    <style>
+    h1 {
+        color: rgb(72, 72, 72);
+    }
+    </style>
 
-<?php
-// include_once "include/templates/header.php";
-include "include/templates/footer.php";
-?>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Index</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <!-- listado clientes -->
+    <label class="p-5"> </label>
+    <div class="container-sm">
+        <table class="table table-light table-hover display-6">
+            <thead class="table-success">
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Suscripcion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>desactivado</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>desactivado</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>desactivado</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

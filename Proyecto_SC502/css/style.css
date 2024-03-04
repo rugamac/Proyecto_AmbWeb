@@ -1,8 +1,8 @@
 /* Custom properties */
 
 :root {
-    --primario: green;
-    --primarioOscuro: darkgreen;
+    --primario: rgb(70, 70, 70);
+    --primarioOscuro: rgb(117, 33, 33);
     --secundario: grey;
     --secundarioOscuro: black;
     --blanco: #FFF;
@@ -369,6 +369,7 @@ table {
     color: var(--blanco);
 }
 
+
 /*estilo de login*/
 .loginBox{
     width: 300px;
@@ -384,5 +385,4 @@ table {
 .contenedor2 {
     margin: 15%;
     background: rgb(250, 243, 233);
-    
 }
