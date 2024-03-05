@@ -2,7 +2,7 @@
 
 require_once "conexion.php";
 
-function IngresarEstudiante($pNombre, $pCorreo, $pTelefono) {
+function IngresarUsuario($pNombre, $pCorreo, $pTelefono) {
     $retorno = false;
 
     try {
@@ -10,10 +10,10 @@ function IngresarEstudiante($pNombre, $pCorreo, $pTelefono) {
 
         // formato de datos utf8
         if(mysqli_set_charset($oConexion, "utf8")){
-            $stmt = $oConexion->prepare("insert into estudiante (nombre, correo, telefono) values (?, ?, ?)");
+            $stmt = $oConexion->prepare("insert into Usuario (nombre, correo, telefono) values (?, ?, ?)");
             $stmt->bind_param("sss", $iNombre, $iCorreo, $iTelefono);
 
-            // set parametros y luego ejecutar
+            // cambiar segun base de datos
             $iNombre = $pNombre;
             $iCorreo = $pCorreo;
             $iTelefono = $pTelefono;
@@ -43,7 +43,7 @@ function DefinirContrasena($pCorreo, $pPassword) {
 
         // formato de datos utf8
         if(mysqli_set_charset($oConexion, "utf8")){
-            $stmt = $oConexion->prepare("update estudiante set password = ? where correo = ?");
+            $stmt = $oConexion->prepare("update Usuario set password = ? where correo = ?");
             $stmt->bind_param("ss", $iPassword, $iCorreo);
 
             // set parametros y luego ejecutar

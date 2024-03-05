@@ -1,3 +1,6 @@
+create DATABASE proyectoSQL;
+use proyectoSQL;
+
 create table usuario
 (
     id_usuario INT AUTO_INCREMENT NOT NULL, 

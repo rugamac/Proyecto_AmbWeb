@@ -36,19 +36,28 @@
             <thead class="table-success">
                 <tr>
                     <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
                     <th scope="col">Suscripcion</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
+                <?php
+                include "DAL/conexion.php";
+                $sql = conecta()->query("select nombre, primer_apellido, tipo_suscripcion from usuario");
+                while($datos=$sql->fetch_object()){ ?>
                 <tr>
-                    <td>Mark</td>
-                    <td>desactivado</td>
+                    <td><?= $datos->nombre ?></td>
+                    <td><?= $datos->primer_apellido ?></td>
+                    <td><?= $datos->tipo_suscripcion ?></td>
                     <td>
                         <a href="" class="btn btn-success btn-lg"><i class="fa-solid fa-dumbbell"></i>Perfil</a>
                         <a href="" class="btn btn-warning btn-lg"><i class="fa-solid fa-desktop"></i>Sistema</a>
                     </td>
                 </tr>
+                <?php }
+                ?>
+
             </tbody>
         </table>
     </div>
