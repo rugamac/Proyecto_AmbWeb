@@ -35,6 +35,7 @@
         <table class="table table-light table-hover display-6">
             <thead class="table-success">
                 <tr>
+                    <th scope="col">Id</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">Suscripcion</th>
@@ -44,14 +45,15 @@
             <tbody>
                 <?php
                 include "DAL/conexion.php";
-                $sql = conecta()->query("select nombre, primer_apellido, tipo_suscripcion from usuario");
+                $sql = conecta()->query("select id_usuario, nombre, primer_apellido, tipo_suscripcion from usuario");
                 while($datos=$sql->fetch_object()){ ?>
                 <tr>
+                    <td><?= $datos->id_usuario ?></td>
                     <td><?= $datos->nombre ?></td>
                     <td><?= $datos->primer_apellido ?></td>
                     <td><?= $datos->tipo_suscripcion ?></td>
                     <td>
-                        <a href="" class="btn btn-success btn-lg"><i class="fa-solid fa-dumbbell"></i>Perfil</a>
+                        <a href="PerfilUsuario.php?id=<?= $datos->id_usuario ?>" class="btn btn-success btn-lg"><i class="fa-solid fa-dumbbell"></i>Perfil</a>
                         <a href="" class="btn btn-warning btn-lg"><i class="fa-solid fa-desktop"></i>Sistema</a>
                     </td>
                 </tr>
