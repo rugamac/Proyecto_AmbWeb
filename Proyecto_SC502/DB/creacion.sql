@@ -23,7 +23,7 @@ create table detalles_usuario
     lesiones VARCHAR(50) NOT NULL,
     medicamentos VARCHAR(100) NOT NULL,
     embarazo VARCHAR(50) NOT NULL,
-    cirujia VARCHAR(200) NOT NULL,
+    cirugia VARCHAR(200) NOT NULL,
     objetivos TEXT NOT NULL,
     id_usuario int(5),
     PRIMARY KEY(id_detalle),

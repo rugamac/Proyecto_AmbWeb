@@ -92,8 +92,8 @@ $sqlU=conecta()->query("select nombre from usuario where id_usuario=$id");
                 </div>
 
                 <div class="col-sm-5 mb-5">
-                    <h2 class="display-6 text-success">Cirujia: </h2>
-                    <h2 class="display-6 text-white"><?= $datos->cirujia ?></h2>
+                    <h2 class="display-6 text-success">Cirugia: </h2>
+                    <h2 class="display-6 text-white"><?= $datos->cirugia ?></h2>
 
 
                 </div>
