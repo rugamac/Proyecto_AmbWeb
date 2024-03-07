@@ -3,7 +3,7 @@
 $id=$_GET["id"];
 include "DAL/conexion.php";
 $sql=conecta()->query("select * from detalles_usuario where id_detalle=$id");
-$sqlU=conecta()->query("select nombre from usuario where id_usuario=$id");
+$sqlU=conecta()->query("select nombre, primer_apellido, segundo_apellido from usuario where id_usuario=$id");
 ?>
 
 <!DOCTYPE html>
@@ -38,11 +38,12 @@ $sqlU=conecta()->query("select nombre from usuario where id_usuario=$id");
 <body>
     <!--  -->
     <?php
+    $datosN = $sqlU -> fetch_object();
     while ($datos = $sql -> fetch_object()) { ?>
 
     <div class="container mt-3">
         <div class="mt-4 p-5 bg-dark text-white">
-            <h1 class="text-center text-success"><?= $datos->nombre ?></h1><br>
+            <h1 class="text-center text-success"><?= $datosN->nombre . " " . $datosN->primer_apellido . " " . $datosN->segundo_apellido?></h1><br>
         </div>
     </div>
     <div class="container mt-2 container-fluid">
@@ -52,56 +53,49 @@ $sqlU=conecta()->query("select nombre from usuario where id_usuario=$id");
                 <!-- columna -->
 
                 <div class="col-sm-5 mb-5">
-                    <h2 class="display-6 text-success">Fecha de nacimiento </h2>
-                    <h2 class="display-6 text-white"><?= $datos->Fecha_nacimiento ?></h2>
-
-                </div>
-
-                <div class="col-sm-5 mb-5">
                     <h2 class="display-6 text-success">Altura: </h2>
-                    <h2 class="display-6 text-white"><?= $datos->altura_persona ?></h2>
-
+                    <h2 class="display-6 text-white"><?= $datos->altura_persona ?> m</h2>
                 </div>
 
                 <div class="col-sm-5 mb-5">
                     <h2 class="display-6 text-success">Peso: </h2>
-                    <h2 class="display-6 text-white"><?= $datos->peso_persona ?></h2>
-
+                    <h2 class="display-6 text-white"><?= $datos->peso_persona ?> Kg</h2>
                 </div>
 
                 <div class="col-sm-5 mb-5">
                     <h2 class="display-6 text-success">Lesiones: </h2>
                     <h2 class="display-6 text-white"><?= $datos->lesiones ?></h2>
-
                 </div>
-            </div>
 
-            <div class="row justify-content-center">
-                <!-- columna  -->
 
                 <div class="col-sm-5 mb-5">
                     <h2 class="display-6 text-success">Medicamentos: </h2>
                     <h2 class="display-6 text-white"><?= $datos->medicamentos ?></h2>
-
                 </div>
+
+            </div>
+            <div class="row justify-content-center">
+                <!-- columna  -->
 
                 <div class="col-sm-5 mb-5">
                     <h2 class="display-6 text-success">Embarazo: </h2>
                     <h2 class="display-6 text-white"><?= $datos->embarazo ?></h2>
-
                 </div>
 
                 <div class="col-sm-5 mb-5">
                     <h2 class="display-6 text-success">Cirugia: </h2>
                     <h2 class="display-6 text-white"><?= $datos->cirugia ?></h2>
-
-
                 </div>
 
                 <div class="col-sm-5 mb-5">
                     <h2 class="display-6 text-success">Objetivo: </h2>
                     <h2 class="display-6 text-white"><?= $datos->objetivos ?></h2>
+                </div>
 
+                <div class="col-sm-5 mb-5">
+                    <h2 class="display-6 text-success">Edad: </h2>
+                    <?= include "DAL/cliente.php";?>
+                    <h2 class="display-6 text-white"><?= $datos = edad($datos->fecha_nacimiento); ?> años</h2>
                 </div>
 
             </div>
