@@ -2,6 +2,7 @@
 
 require_once "conexion.php";
 
+/*
 function CrearUsuario($pNombre, $pPrimerApellido, $pSegundoApellido, $pCorreo) {
     $retorno = false;
 
@@ -33,6 +34,30 @@ function CrearUsuario($pNombre, $pPrimerApellido, $pSegundoApellido, $pCorreo) {
 
     return $retorno;
 }
+*/
+
+    if(!empty($_POST["btnRegistrar"])){
+
+        if (!empty($_POST["nombre"]) and !empty($_POST["primerApellido"]) and !empty($_POST["segundoApellido"]) and !empty($_POST["email"])){
+            
+            $nombre=$_POST["nombre"];
+            $primerApellido=$_POST["primerApellido"];
+            $segundoApellido=$_POST["segundoApellido"];
+            $email=$_POST["correo"];
+
+            $sql=Conecta()->query("insert into usuario (nombre, primer_apellido, segundo_apellido, correo) values ('$nombre', '$primerApellido', '$segundoApellido', '$correo')");
+
+            if($sql==1){
+                echo '<div class="alert alert-success">Usuario registrado</div>';
+            }else{
+                echo '<div class="alert alert-danger">Error al registrar</div>';
+            }
+
+        }else{
+            echo '<div class="alert alert-warning">Algunos de los campos esta vacio"</div>';
+        }
+    }
+
 
 function DefinirContrasena($pCorreo, $pPassword) {
     $retorno = false;

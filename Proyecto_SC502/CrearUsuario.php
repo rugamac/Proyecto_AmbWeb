@@ -1,9 +1,4 @@
 <!--Recibir id del usuario en ecpecifico-->
-<?php 
-include "DAL/conexion.php";
-include "DAL/usuario.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,14 +39,17 @@ include "DAL/usuario.php";
                         <input type="text" name="segundoApellido" class="form-control my-4 py-2"
                             placeholder="Segundo Apellido" />
 
-                        <input type="email" name="email" class="form-control my-4 py-2"
+                        <input type="email" name="correo" class="form-control my-4 py-2"
                             placeholder="Correo Electronico" />
 
                         <input type="password" name="password" class="form-control my-4 py-2"
                             placeholder="Contraseña" />
-
+                        <?php
+                        include "DAL/conexion.php";
+                        include "DAL/registrarUsuario.php";
+                        ?>
                         <div class="text-center mt-3"><br>
-                            <button class="btn btn-success p-2">Registrarse</button>
+                            <button class="btn btn-success p-2" name="btnRegistrar" value="ok">Registrarse</button>
                             <a href="login.php" class="nav-link text-primary my-3">Ya tengo una cuenta</a>
                         </div>
 
