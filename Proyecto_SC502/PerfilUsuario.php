@@ -3,7 +3,7 @@
 $id=$_GET["id"];
 include "DAL/conexion.php";
 $sql=conecta()->query("select * from detalles_usuario where id_detalle=$id");
-$sqlU=conecta()->query("select nombre, primer_apellido, segundo_apellido from usuario where id_usuario=$id");
+$sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apellido from usuario where id_usuario=$id");
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +21,7 @@ $sqlU=conecta()->query("select nombre, primer_apellido, segundo_apellido from us
 
     <style>
     h1 {
-        color: rgb(72, 72, 72);
+        color: rgb(70, 70, 70);
     }
     </style>
 
@@ -38,12 +38,12 @@ $sqlU=conecta()->query("select nombre, primer_apellido, segundo_apellido from us
 <body>
     <!--  -->
     <?php
-    $datosN = $sqlU -> fetch_object();
+    $datosU = $sqlU -> fetch_object();
     while ($datos = $sql -> fetch_object()) { ?>
 
     <div class="container mt-3">
         <div class="mt-4 p-5 bg-dark text-white">
-            <h1 class="text-center text-success"><?= $datosN->nombre . " " . $datosN->primer_apellido . " " . $datosN->segundo_apellido?></h1><br>
+            <h1 class="text-center text-success"><?= $datosU->nombre . " " . $datosU->primer_apellido . " " . $datosU->segundo_apellido?></h1><br>
         </div>
     </div>
     <div class="container mt-2 container-fluid">
@@ -94,7 +94,7 @@ $sqlU=conecta()->query("select nombre, primer_apellido, segundo_apellido from us
 
                 <div class="col-sm-5 mb-5">
                     <h2 class="display-6 text-success">Edad: </h2>
-                    <?= include "DAL/cliente.php";?>
+                    <?= include "DAL/usuario.php";?>
                     <h2 class="display-6 text-white"><?= $datos = edad($datos->fecha_nacimiento); ?> años</h2>
                 </div>
 
@@ -103,6 +103,12 @@ $sqlU=conecta()->query("select nombre, primer_apellido, segundo_apellido from us
     </div>
     <?php }?>
 
+    <div class="mt-4 p-5">
+
+    <a href="editarDatosUsuario.php?id=<?= $datosU->id_usuario ?>" class="btn btn-outline-success btn-lg">Editar Informacion</a>
+
+
+    </div>
 
 
 

@@ -1,3 +1,9 @@
+<?php 
+$id=$_GET["id"];
+include "DAL/conexion.php";
+$sql=conecta()->query("select * from detalles_usuario where id_detalle=$id");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +19,7 @@
 
     <style>
     h1 {
-        color: rgb(72, 72, 72);
+        color: rgb(75, 75, 75);
     }
     </style>
 

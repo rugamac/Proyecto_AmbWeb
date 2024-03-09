@@ -1,15 +1,14 @@
 /* Custom properties */
 
 :root {
-    --primario: rgb(70, 70, 70);
-    --primarioOscuro: rgb(117, 33, 33);
-    --secundario: grey;
+    --primario: rgb(29, 104, 54);
+    --primarioOscuro: rgb(16, 70, 34);
+    --secundario: rgb(73, 73, 73);
     --secundarioOscuro: black;
     --blanco: #FFF;
     --negro: #000;
 
-
-    --fuentePrincipal: 'Arial', cursive;
+    --fuentePrincipal: 'Arial';
 }
 
 
@@ -37,7 +36,7 @@ body {
 }
 
 p {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-family: Arial, Helvetica, sans-serif;
     color: var(--blanco);
 }
@@ -51,7 +50,8 @@ img {
     height: 25rem;
 }
 
-.contenedor {
+
+.contenedor{
     max-width: 120rem;
     margin: 0 auto;
 }

@@ -2,7 +2,7 @@
 
 require_once "conexion.php";
 
-function IngresarUsuario($pNombre, $pCorreo, $pTelefono) {
+function CrearUsuario($pNombre, $pPrimerApellido, $pSegundoApellido, $pCorreo) {
     $retorno = false;
 
     try {
@@ -10,13 +10,13 @@ function IngresarUsuario($pNombre, $pCorreo, $pTelefono) {
 
         // formato de datos utf8
         if(mysqli_set_charset($oConexion, "utf8")){
-            $stmt = $oConexion->prepare("insert into Usuario (nombre, correo, telefono) values (?, ?, ?)");
-            $stmt->bind_param("sss", $iNombre, $iCorreo, $iTelefono);
+            $stmt = $oConexion->prepare("insert into Usuario (nombre, primer_apellido, segundo_apellido, ) values (?, ?, ?)");
+            $stmt->bind_param("sss", $iNombre, $iPrimer_apellido, $iSegundo_apellido);
 
             // cambiar segun base de datos
             $iNombre = $pNombre;
-            $iCorreo = $pCorreo;
-            $iTelefono = $pTelefono;
+            $iPrimer_apellido = $pPrimer_apellido;
+            $iSegundo_apellido = $pSegundo_apellido;
 
             if ($stmt->execute()){
                 $retorno = true;
@@ -33,7 +33,6 @@ function IngresarUsuario($pNombre, $pCorreo, $pTelefono) {
 
     return $retorno;
 }
-
 
 function DefinirContrasena($pCorreo, $pPassword) {
     $retorno = false;
