@@ -2,6 +2,7 @@
 $id=$_GET["id"];
 include "DAL/conexion.php";
 $sql=conecta()->query("select * from detalles_usuario where id_detalle=$id");
+$sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apellido from usuario where id_usuario=$id");
 ?>
 
 <!DOCTYPE html>
@@ -17,14 +18,7 @@ $sql=conecta()->query("select * from detalles_usuario where id_detalle=$id");
         href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
 
-    <style>
-    h1 {
-        color: rgb(75, 75, 75);
-    }
-    </style>
-
-    <link rel="stylesheet" href="css/style.css">
-    <title>Index</title>
+    <title>Editar Informacion</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -35,61 +29,81 @@ $sql=conecta()->query("select * from detalles_usuario where id_detalle=$id");
 
 <body>
     <!--  -->
+    <?php
+    $datosU = $sqlU -> fetch_object();//para mostrar nombre
+    while ($datos = $sql -> fetch_object()) { ?>
+    <!-- //recorrer todos los datos de la tabla-->
 
-
-    </div>
-    <div class="container mt-3 container-fluid">
-        <div class="mt-4 p-5 bg-dark">
-
-        <div class="row justify-content-center"> <!-- columna -->
-
-<div class="col-sm-5 mb-5">
-    <h2 class="display-6 text-success">Edad: </h2>
-    <input type="text" class="form-control" id="input1">
-</div>
-
-<div class="col-sm-5 mb-5">
-<h2 class="display-6 text-success">Edad: </h2>
-    <input type="text" class="form-control" id="input1">
-</div>
-
-<div class="col-sm-5 mb-5">
-<h2 class="display-6 text-success">Edad: </h2>
-    <input type="text" class="form-control" id="input1">
-</div>
-
-<div class="col-sm-5 mb-5">
-<h2 class="display-6 text-success">Edad: </h2>
-    <input type="text" class="form-control" id="input1">
-</div>
-</div>
-
-<div class="row justify-content-center"> <!-- columna  -->
-
-<div class="col-sm-5 mb-5">
-    <h2 class="display-6 text-success">Edad: </h2>
-    <input type="text" class="form-control" id="input1">
-</div>
-
-<div class="col-sm-5 mb-5">
-<h2 class="display-6 text-success">Edad: </h2>
-    <input type="text" class="form-control" id="input1">
-</div>
-
-<div class="col-sm-5 mb-5">
-<h2 class="display-6 text-success">Edad: </h2>
-    <input type="text" class="form-control" id="input1">
-</div>
-
-<div class="col-sm-5 mb-5">
-<h2 class="display-6 text-success">Edad: </h2>
-    <input type="text" class="form-control" id="input1">
-</div>
-
-            </div>
+    <div class="container mt-3">
+        <div class="mt-4 p-5 bg-dark text-white">
+            <h1 class="text-center text-success">
+                <?= $datosU->nombre . " " . $datosU->primer_apellido . " " . $datosU->segundo_apellido?></h1><br>
         </div>
     </div>
 
+    </div>
+    <div class="container mt-3 container-fluid m-auto">
+        <div class="mt-4 p-5 bg-dark">
+            <form method="POST">
+
+                <div class="row justify-content-center m-auto">
+                    <!-- columna -->
+
+                    <div class="col-sm-5 mb-5">
+                        <h3 class="text-success">Altura: </h3>
+                        <input type="text" class="form-control" name="altura" value="<?= $datos->altura_persona ?>">
+                    </div>
+
+                    <div class="col-sm-5 mb-5">
+                        <h3 class=" text-success">Peso: </h3>
+                        <input type="text" class="form-control" name="peso" value="<?= $datos->peso_persona ?>">
+                    </div>
+
+                    <div class="col-sm-5 mb-5">
+                        <h3 class=" text-success">Lesiones: </h3>
+                        <input type="text" class="form-control" name="lesiones" value="<?= $datos->lesiones ?>">
+                    </div>
+
+                    <div class="col-sm-5 mb-5">
+                        <h3 class=" text-success">Medicamentos: </h3>
+                        <input type="text" class="form-control" name="medicamentos" value="<?= $datos->medicamentos ?>">
+                    </div>
+                </div>
+
+                <div class="row justify-content-center m-auto">
+                    <!-- columna  -->
+
+                    <div class="col-sm-5 mb-5">
+                        <h3 class=" text-success">Embarazo: </h3>
+                        <input type="text" class="form-control" name="embarazo" value="<?= $datos->embarazo ?>">
+                    </div>
+
+                    <div class="col-sm-5 mb-5">
+                        <h3 class=" text-success">Cirugia: </h3>
+                        <input type="text" class="form-control" name="cirugia" value="<?= $datos->cirugia ?>">
+                    </div>
+
+                    <div class="col-sm-5 mb-5">
+                        <h3 class=" text-success">Objetivo: </h3>
+                        <input type="text" class="form-control" name="objetivos" value="<?= $datos->objetivos ?>">
+                    </div>
+
+                    <div class="col-sm-5 mb-5">
+                        <h3 class=" text-success">Fecha nacimiento: </h3>
+                        <input type="date" class="form-control" name="edad" value="<?= $datos->fecha_nacimiento ?>">
+                    </div>
+
+                </div>
+
+                <div class="text-center mt-3"><br>
+                    <button class="btn btn-success py-2 px-4 btn-lg" name="btnActualizarDatos"
+                        value="ok">Guardar</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <?php }?>
 
 
 

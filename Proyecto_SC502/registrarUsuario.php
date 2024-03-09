@@ -1,4 +1,5 @@
 <?php
+
 //verifica si hay contenido en los campos txt
 if(!empty($_POST["btnRegistrar"])){
     if (!empty($_POST["nombre"]) and !empty($_POST["primerApellido"]) and !empty($_POST["segundoApellido"]) and !empty($_POST["correo"])){
@@ -14,7 +15,6 @@ if(!empty($_POST["btnRegistrar"])){
         $resultado = Conecta()->query($verificarCorreo);
         if(mysqli_num_rows($resultado)>0){
             echo '<div class="alert alert-warning text-center">Este correo ya está registrado</div>';
-            header("Location: crearUsuario.php");
         }
 
 
@@ -32,13 +32,16 @@ if(!empty($_POST["btnRegistrar"])){
     }   
 }
 
+
+//para la contrasena ------------------------------------------------------------------------- sin terminar
+
 if(!empty($_POST["btnRegistrar"])){
     if (!empty($_POST["password"])){
         
         $password=$_POST["password"];
 
 
-        //este bloque aun tiene fallas - verifica si el correo ya se registro para evitar duplicados
+        //
         $verificarCorreo = "SELECT correo FROM usuario WHERE correo = '$correo'";
         $resultado = Conecta()->query($verificarCorreo);
         if(mysqli_num_rows($resultado)>0){
@@ -57,7 +60,7 @@ if(!empty($_POST["btnRegistrar"])){
         }
 
     }else{//alerta si hay campos vacios
-        echo '<div class="alert alert-warning text-center">Algunos de los campos están vacíos</div>';  
+        echo '<div class="alert alert-warning text-center">Campo contraseña vacio</div>';  
     }   
 }
     
