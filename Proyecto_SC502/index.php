@@ -53,7 +53,7 @@
                     <td><?= $datos->primer_apellido ?></td>
                     <td><?= $datos->tipo_suscripcion ?></td>
                     <td>
-                        <a href="PerfilUsuario.php?id=<?= $datos->id_usuario ?>" class="btn btn-success btn-lg"><i class="fa-solid fa-dumbbell"></i>Perfil</a>
+                        <a href="perfilUsuario.php?id=<?= $datos->id_usuario ?>" class="btn btn-success btn-lg"><i class="fa-solid fa-dumbbell"></i>Perfil</a>
                         <a href="" class="btn btn-warning btn-lg"><i class="fa-solid fa-desktop"></i>Sistema</a>
                     </td>
                 </tr>

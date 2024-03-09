@@ -36,11 +36,7 @@ $sql=conecta()->query("select * from detalles_usuario where id_detalle=$id");
 <body>
     <!--  -->
 
-    <div class="container mt-3">
-        <div class="mt-4 p-5 bg-dark text-white">
-            <h1 class="text-center text-success">Nombre Persona</h1><br>
-            <p class="text-center">Objetivos</p>
-        </div>
+
     </div>
     <div class="container mt-3 container-fluid">
         <div class="mt-4 p-5 bg-dark">

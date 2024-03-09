@@ -33,16 +33,23 @@ include "DAL/usuario.php";
 
             <div class="col-lg-6 m-auto">
                 <div class="card-body">
-                    <form action="">
+                    <form method="POST">
                         <h1 class="text-success text-center">Crear Usuario</h1>
+
                         <input type="text" name="nombre" class="form-control my-4 py-2" placeholder="Nombre" />
+
                         <input type="text" name="primerApellido" class="form-control my-4 py-2"
                             placeholder="Primer Apellido" />
+
                         <input type="text" name="segundoApellido" class="form-control my-4 py-2"
                             placeholder="Segundo Apellido" />
+
                         <input type="email" name="email" class="form-control my-4 py-2"
                             placeholder="Correo Electronico" />
-                        <input type="password" name="password" class="form-control my-4 py-2" placeholder="Contraseña" />
+
+                        <input type="password" name="password" class="form-control my-4 py-2"
+                            placeholder="Contraseña" />
+
                         <div class="text-center mt-3"><br>
                             <button class="btn btn-success p-2">Registrarse</button>
                             <a href="login.php" class="nav-link text-primary my-3">Ya tengo una cuenta</a>
