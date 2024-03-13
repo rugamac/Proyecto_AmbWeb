@@ -1,6 +1,6 @@
 <?php
 $login = false;
-require_once "include/templates/headerCliente.php";
+require_once "include/.php";
 $errores = array();
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {

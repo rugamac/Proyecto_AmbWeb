@@ -45,7 +45,7 @@ $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apel
     <div class="container mt-3 container-fluid m-auto">
         <div class="mt-4 p-5 bg-dark">
             <form method="POST">
-
+                <input type="hidden" name="id_detalle" value="<?= $id ?>">
                 <div class="row justify-content-center m-auto">
                     <!-- columna -->
 
@@ -100,14 +100,14 @@ $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apel
                         value="ok">Guardar</button>
                 </div>
             </form>
+            <?php //
+        include "DAL/usuario.php";
+        
 
+        ?>
         </div>
     </div>
     <?php }?>
-
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">

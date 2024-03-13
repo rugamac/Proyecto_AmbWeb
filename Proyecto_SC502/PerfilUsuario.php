@@ -49,64 +49,65 @@ $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apel
     </div>
     <div class="container mt-2 container-fluid">
         <div class="mt-4 p-5 bg-dark">
-                <div class="row justify-content-center">
-                    <!-- columna -->
+            <div class="row justify-content-center">
+                <!-- columna -->
 
-                    <div class="col-sm-5 mb-5">
-                        <h2 class="display-6 text-success">Altura: </h2>
-                        <h2 class="display-6 text-white"><?= $datos->altura_persona ?> m</h2>
-                    </div>
-
-                    <div class="col-sm-5 mb-5">
-                        <h2 class="display-6 text-success">Peso: </h2>
-                        <h2 class="display-6 text-white"><?= $datos->peso_persona ?> Kg</h2>
-                    </div>
-
-                    <div class="col-sm-5 mb-5">
-                        <h2 class="display-6 text-success">Lesiones: </h2>
-                        <h2 class="display-6 text-white"><?= $datos->lesiones ?></h2>
-                    </div>
-
-
-                    <div class="col-sm-5 mb-5">
-                        <h2 class="display-6 text-success">Medicamentos: </h2>
-                        <h2 class="display-6 text-white"><?= $datos->medicamentos ?></h2>
-                    </div>
-
-                </div>
-                <div class="row justify-content-center">
-                    <!-- columna  -->
-
-                    <div class="col-sm-5 mb-5">
-                        <h2 class="display-6 text-success">Embarazo: </h2>
-                        <h2 class="display-6 text-white"><?= $datos->embarazo ?></h2>
-                    </div>
-
-                    <div class="col-sm-5 mb-5">
-                        <h2 class="display-6 text-success">Cirugia: </h2>
-                        <h2 class="display-6 text-white"><?= $datos->cirugia ?></h2>
-                    </div>
-
-                    <div class="col-sm-5 mb-5">
-                        <h2 class="display-6 text-success">Objetivo: </h2>
-                        <h2 class="display-6 text-white"><?= $datos->objetivos ?></h2>
-                    </div>
-
-                    <div class="col-sm-5 mb-5">
-                        <h2 class="display-6 text-success">Edad: </h2>
-                        <?= include "DAL/usuario.php";?>
-                        <h2 class="display-6 text-white"><?= $datos = edad($datos->fecha_nacimiento); ?> años</h2>
-                    </div>
-
+                <div class="col-sm-5 mb-5">
+                    <h2 class="display-6 text-success">Altura: </h2>
+                    <h2 class="display-6 text-white"><?= $datos->altura_persona ?> m</h2>
                 </div>
 
-                <div class="mt-4 p-5">
-                    <a href="editarDatosUsuario.php?id=<?= $datosU->id_usuario ?>"
-                        class="btn btn-outline-success btn-lg">Editar Informacion</a>
+                <div class="col-sm-5 mb-5">
+                    <h2 class="display-6 text-success">Peso: </h2>
+                    <h2 class="display-6 text-white"><?= $datos->peso_persona ?> Kg</h2>
                 </div>
+
+                <div class="col-sm-5 mb-5">
+                    <h2 class="display-6 text-success">Lesiones: </h2>
+                    <h2 class="display-6 text-white"><?= $datos->lesiones ?></h2>
+                </div>
+
+
+                <div class="col-sm-5 mb-5">
+                    <h2 class="display-6 text-success">Medicamentos: </h2>
+                    <h2 class="display-6 text-white"><?= $datos->medicamentos ?></h2>
+                </div>
+
+            </div>
+            <div class="row justify-content-center">
+                <!-- columna  -->
+
+                <div class="col-sm-5 mb-5">
+                    <h2 class="display-6 text-success">Embarazo: </h2>
+                    <h2 class="display-6 text-white"><?= $datos->embarazo ?></h2>
+                </div>
+
+                <div class="col-sm-5 mb-5">
+                    <h2 class="display-6 text-success">Cirugia: </h2>
+                    <h2 class="display-6 text-white"><?= $datos->cirugia ?></h2>
+                </div>
+
+                <div class="col-sm-5 mb-5">
+                    <h2 class="display-6 text-success">Objetivo: </h2>
+                    <h2 class="display-6 text-white"><?= $datos->objetivos ?></h2>
+                </div>
+
+                <div class="col-sm-5 mb-5">
+                    <h2 class="display-6 text-success">Edad: </h2>
+                    <?= include "DAL/usuario.php";?>
+                    <h2 class="display-6 text-white"><?= $datos = edad($datos->fecha_nacimiento); ?> años</h2>
+                </div>
+
+            </div>
+
+
         </div>
     </div>
     <?php }?>
+    <div class="mt-4 p-5">
+        <a href="editarDatosUsuario.php?id=<?= $datosU->id_usuario ?>" class="btn btn-outline-success btn-lg">Editar
+            Informacion</a>
+    </div>
 
 
 
