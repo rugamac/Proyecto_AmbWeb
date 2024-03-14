@@ -1,7 +1,7 @@
 <?php
 
 require_once "conexion.php";
-
+/*
 function DefinirContrasena($pCorreo, $pPassword) { //aun no funcional
     $retorno = false;
 
@@ -31,7 +31,7 @@ function DefinirContrasena($pCorreo, $pPassword) { //aun no funcional
     }
 
     return $retorno;
-}
+}*/
 
 function edad($fecha_nacimiento) {
 
@@ -46,7 +46,6 @@ function edad($fecha_nacimiento) {
 
     return $edad;
 }
-
 
     if (!empty($_POST["btnActualizarDatos"])){
         //verifica si cada textfield tiene datos
