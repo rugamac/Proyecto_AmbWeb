@@ -46,7 +46,7 @@ function edad($fecha_nacimiento) {
 
     return $edad;
 }
-
+//actualiza datos de la tabla detalles usuario
     if (!empty($_POST["btnActualizarDatos"])){
         //verifica si cada textfield tiene datos
         if(!empty($_POST["altura"]) and !empty($_POST["peso"]) and

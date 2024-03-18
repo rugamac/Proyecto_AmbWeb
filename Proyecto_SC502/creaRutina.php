@@ -9,7 +9,7 @@ require_once "include/templates/headerClientes.php";
     <div>
         <p><?= $ingreso==1? "Se ingreso la rutina correctamente" : "" ; ?></p>
 
-        <?php
+<?php
         require_once "DAL/cliente.php";
         $elSQL = "select id, nombre, correo, telefono from clientes";
         $myArray = getArray($elSQL);
@@ -18,20 +18,20 @@ require_once "include/templates/headerClientes.php";
         // echo json_encode($myArray, JSON_UNESCAPED_UNICODE);
         ?>
 
-        <div>
-            <h2>Datos de los Clientes</h2>
-            <table width=90%>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Correo</th>
-                    <th>Teléfono</th>
-                    <th>Edad</th>
-                    <th>Antecedentes médicos</th>
-                    <th>Tiempo de actividad</th>
-                    <th>Embarazos o cirugías</th>
-                    <th>Subscripción</th>
-                </tr>
-                <?php
+<div>
+    <h2>Datos de los Clientes</h2>
+    <table width=90%>
+        <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Teléfono</th>
+            <th>Edad</th>
+            <th>Antecedentes médicos</th>
+            <th>Tiempo de actividad</th>
+            <th>Embarazos o cirugías</th>
+            <th>Subscripción</th>
+        </tr>
+        <?php
                 if(!empty($myArray)){
                     foreach ($myArray as $value) {
                         echo "<tr>";
@@ -54,11 +54,11 @@ require_once "include/templates/headerClientes.php";
                 }
                 ?>
 
-            </table>
-        </div>
+    </table>
+</div>
 
 
-    </div>
+</div>
 </main>
 
 <?php
