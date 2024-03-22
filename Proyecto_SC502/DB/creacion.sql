@@ -26,19 +26,18 @@ create table detalles_usuario
     embarazo VARCHAR(50) NOT NULL,
     cirugia VARCHAR(200) NOT NULL,
     objetivos TEXT NOT NULL,
-    id_usuario int(5),
+    id_usuario int(3),
     PRIMARY KEY(id_detalle),
     FOREIGN KEY(id_usuario) REFERENCES usuario(id_usuario)
 );
 
--- Crear la tabla "rutinas"         --una rutina puede tener varios ejercicios
+-- Crear la tabla "rutinas"         --una rutina puede tener varios ejercicios y un usuario puede tener varias rutinas
 CREATE TABLE IF NOT EXISTS rutina (
-    id_rutina INT AUTO_INCREMENT PRIMARY KEY,
+    id_rutina INT AUTO_INCREMENT NOT NULL,
     nombre_rutina VARCHAR(50) NOT NULL,
-    fecha_rutina DATE NOT NULL,
-    hora_rutina TIME NOT NULL,
+    dia_rutina VARCHAR(30) NOT NULL,
     descripcion_rutina TEXT,
-    id_usuario int(5),
+    id_usuario int(3),
     PRIMARY KEY(id_rutina),
     foreign key(id_usuario) references usuario(id_usuario)
 );
@@ -55,7 +54,7 @@ CREATE TABLE IF NOT EXISTS ejercicio (
     tempos VARCHAR(50) NOT NULL,
     descanso VARCHAR(50) NOT NULL,
     observaciones TEXT,
-    id_rutina int(5),
+    id_rutina int(3),
     PRIMARY KEY(id_ejercicio),
     foreign key(id_rutina) references rutina(id_rutina) 
 );
@@ -67,7 +66,7 @@ CREATE TABLE IF NOT EXISTS check_in (
     mes VARCHAR(50) NOT NULL,                               --un mes contiene varias fotos
     anno DATE NOT NULL,                                              --un año contiene varios meses con sus respectivas fotos
     nota_mensual TEXT NOT NULL,
-    id_usuario int(5),
+    id_usuario int(3),
     PRIMARY KEY(id_check),
     foreign key(id_usuario) references usuario(id_usuario) 
 );
@@ -76,7 +75,7 @@ CREATE TABLE IF NOT EXISTS check_in (
 CREATE TABLE IF NOT EXISTS fotos (
     id_foto INT AUTO_INCREMENT NOT NULL,
     ruta_foto VARCHAR (200),                                 
-    id_check int(5),
+    id_check int(3),
     PRIMARY KEY(id_foto),
     foreign key(id_check) references check_in(id_check) 
 );

@@ -13,10 +13,11 @@ function Conecta() {
     if(!$conexion){
         echo "Ocurrió un error al establecer la conexión " . mysqli_connect_error();
     }
-
     return $conexion;
 }
 
 function Desconectar($conexion) {
     mysqli_close($conexion);
 }
+
+?>

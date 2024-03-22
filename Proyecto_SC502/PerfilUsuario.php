@@ -1,9 +1,10 @@
-<!--Recibir id del usuario en ecpecifico-->
+<!--Recibir id del usuario en especifico-->
 <?php 
 $id=$_GET["id"];
 include "DAL/conexion.php";
 $sql=conecta()->query("select * from detalles_usuario where id_detalle=$id");
 $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apellido from usuario where id_usuario=$id");
+$sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutina");
 ?>
 
 <!DOCTYPE html>
@@ -19,12 +20,6 @@ $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apel
         href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
 
-    <style>
-    h1 {
-        color: rgb(70, 70, 70);
-    }
-    </style>
-
     <link rel="stylesheet" href="css/style.css">
     <title>usuario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -36,7 +31,7 @@ $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apel
 </head>
 
 <body>
-    <!--  -->
+    <!-- mostrar datos tecnicos -->
     <?php
     $datosU = $sqlU -> fetch_object();
     while ($datos = $sql -> fetch_object()) { ?>
@@ -104,14 +99,43 @@ $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apel
         </div>
     </div>
     <?php }?>
+    <!--Boton editar datos-->
     <div class="mt-4 p-5">
         <a href="editarDatosUsuario.php?id=<?= $datosU->id_usuario ?>" class="btn btn-outline-success btn-lg">Editar
             Informacion</a>
     </div>
 
+    <div class="container-sm">
+        <div class="mt-5 p-4 bg-dark text-white">
+            <h2 class="text-start text-success display-6">Rutinas</h2>
+        </div>
+        <table class="table table-dark table-hover display-6">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col" class="text-success">Id</th>
+                    <th scope="col" class="text-success">tipo</th>
+                    <th scope="col" class="text-success">Dia</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                while($datosR=$sqlR->fetch_object()){ ?>
+                <tr>
+                    <td><?= $datosR->id_rutina ?></td>
+                    <td><?= $datosR->nombre_rutina ?></td>
+                    <td><?= $datosR->dia_rutina ?></td>
+                    <td>
+                        <button href="rutinas/rutina.php?id=<?= include_once "rutinas/rutina.php"; $datosR->id_rutina ?>" class="btn btn-success btn-lg"><i
+                                class="fa-solid fa-dumbbell ms-2 me-3"></i>Ver</button>
+                    </td>
+                </tr>
+                <?php }
+                ?>
 
-
-
+            </tbody>
+        </table>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

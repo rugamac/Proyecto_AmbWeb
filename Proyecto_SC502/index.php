@@ -32,13 +32,13 @@
     <!-- listado clientes -->
     <label class="p-5"> </label>
     <div class="container-sm">
-        <table class="table table-light table-hover display-6">
-            <thead class="table-success">
+        <table class="table table-dark table-hover display-6">
+            <thead class="table-dark">
                 <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                    <th scope="col">Suscripcion</th>
+                    <th scope="col" class="text-success">Id</th>
+                    <th scope="col" class="text-success">Nombre</th>
+                    <th scope="col" class="text-success">Apellido</th>
+                    <th scope="col" class="text-success">Suscripcion</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -53,8 +53,8 @@
                     <td><?= $datos->primer_apellido ?></td>
                     <td><?= $datos->tipo_suscripcion ?></td>
                     <td>
-                        <a href="perfilUsuario.php?id=<?= $datos->id_usuario ?>" class="btn btn-success btn-lg"><i class="fa-solid fa-dumbbell"></i>Perfil</a>
-                        <a href="" class="btn btn-warning btn-lg"><i class="fa-solid fa-desktop"></i>Sistema</a>
+                        <a href="perfilUsuario.php?id=<?= $datos->id_usuario ?>" class="btn btn-success btn-lg"><i class="fa-solid fa-dumbbell ms-2 me-3"></i>Perfil</a>
+                        <a href="" class="btn btn-warning btn-lg"><i class="fa-solid fa-desktop ms-2 me-3"></i>Sistema</a>
                     </td>
                 </tr>
                 <?php }
