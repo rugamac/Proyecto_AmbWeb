@@ -26,8 +26,33 @@ $sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutin
 </head>
 
 <body>
+<!-- Detalle de la rutina y mostrar sus ejercicios -->
+
+<div class="table-responsive container-sm mt-5">
+    <table class="table table-bordered table-dark table-striped table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Ejercicio</th>
+          <th>Sets</th>
+          <th>Maquina</th>
+          <th>Observaciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Remo TRX</td>
+          <td>10-8-6-4</td>
+          <td> </td>
+          <td>niguna</td>
 
 
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 
 

@@ -13,7 +13,7 @@
     <!-- El preload nos va a permitir solicitar recursos html rapidamente -->
     <link rel="preload" href="css/style.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>Proyecto SC-502</title>
+    <title>Proyecto</title>
 </head>
 
 <body>

@@ -4,7 +4,7 @@ $id=$_GET["id"];
 include "DAL/conexion.php";
 $sql=conecta()->query("select * from detalles_usuario where id_detalle=$id");
 $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apellido from usuario where id_usuario=$id");
-$sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutina");
+$sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutina where id_usuario=$id");
 ?>
 
 <!DOCTYPE html>
@@ -126,8 +126,8 @@ $sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutin
                     <td><?= $datosR->nombre_rutina ?></td>
                     <td><?= $datosR->dia_rutina ?></td>
                     <td>
-                        <button href="rutinas/rutina.php?id=<?= include_once "rutinas/rutina.php"; $datosR->id_rutina ?>" class="btn btn-success btn-lg"><i
-                                class="fa-solid fa-dumbbell ms-2 me-3"></i>Ver</button>
+                        <a href="rutina.php?id=<?= $datosR->id_rutina ?>" ><button class="btn btn-success btn-lg"><i
+                                    class="fa-solid fa-dumbbell ms-2 me-3"></i>Ver</button></a>
                     </td>
                 </tr>
                 <?php }

@@ -19,7 +19,8 @@ if(!empty($_POST["btnRegistrar"])){
 
 
         //intertar en la BD
-        $sql=Conecta()->query("insert into usuario (nombre, primer_apellido, segundo_apellido, correo) values ('$nombre', '$primerApellido', '$segundoApellido', '$correo')");
+        $sql=Conecta()->query("insert into usuario (nombre, primer_apellido, segundo_apellido, correo, tipo_suscripcion, fecha_creacion_cuenta, rol)
+         values ('$nombre', '$primerApellido', '$segundoApellido', '$correo', 'ninguno', getDate(), 'user');");
 
         if($sql==1){//alertas de intertadi
             echo '<div class="alert alert-success">Usuario registrado</div>';
