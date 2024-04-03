@@ -5,30 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fechas de Pago de Citas - Entrenadora Física</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-    body {
-      background-color: #f8f9fa;
-      font-family: Arial, sans-serif;
-    }
-    .container {
-      max-width: 600px;
-      margin: 50px auto;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .form-group {
-      margin-bottom: 20px;
-    }
-    .btn-block {
-      margin-top: 20px;
-    }
-  </style>
 </head>
 <body>
   <div class="container">
@@ -45,7 +21,6 @@
     </div>
     <button class="btn btn-primary btn-block" id="generarFechas">Generar Fechas de Pago</button>
     <div id="fechasPago" class="mt-3">
-      <!-- Aquí se mostrarán las fechas de pago generadas -->
     </div>
   </div>
 
@@ -56,21 +31,16 @@
     document.getElementById('generarFechas').addEventListener('click', function() {
       var fechaInicio = document.getElementById('fechaInicio').value;
       var fechaFin = document.getElementById('fechaFin').value;
-      
-      // Lógica para generar las fechas de pago
       var fechasPago = generarFechasPago(fechaInicio, fechaFin);
-      
-      // Mostrar las fechas de pago en el elemento con id "fechasPago"
+
       mostrarFechasPago(fechasPago);
     });
 
     function generarFechasPago(fechaInicio, fechaFin) {
       var fechasPago = [];
-      // Convertir las fechas de inicio y fin en objetos de fecha
       var inicio = new Date(fechaInicio);
       var fin = new Date(fechaFin);
-      
-      // Incrementar la fecha de inicio por un mes hasta llegar a la fecha de fin
+
       var fechaActual = new Date(inicio);
       while (fechaActual <= fin) {
         fechasPago.push(new Date(fechaActual));
@@ -81,7 +51,7 @@
 
     function mostrarFechasPago(fechasPago) {
       var fechasPagoDiv = document.getElementById('fechasPago');
-      fechasPagoDiv.innerHTML = ''; // Limpiar el contenido existente
+      fechasPagoDiv.innerHTML = '';
 
       if (fechasPago.length === 0) {
         fechasPagoDiv.innerHTML = '<p>No se encontraron fechas de pago.</p>';
