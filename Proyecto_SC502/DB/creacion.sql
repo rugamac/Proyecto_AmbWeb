@@ -36,7 +36,6 @@ CREATE TABLE IF NOT EXISTS rutina (
     id_rutina INT AUTO_INCREMENT NOT NULL,
     nombre_rutina VARCHAR(50) NOT NULL,
     dia_rutina VARCHAR(30) NOT NULL,
-    descripcion_rutina TEXT,
     id_usuario int(3),
     PRIMARY KEY(id_rutina),
     foreign key(id_usuario) references usuario(id_usuario)
