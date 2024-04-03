@@ -15,43 +15,18 @@
 <div class="container mt-5">
   <h2 class="mb-4">Realizar Pago</h2>
   
-  <div class="form-group">
-    <label for="monto">Monto a Pagar:</label>
-    <input type="text" class="form-control" id="monto" placeholder="Ingrese el monto">
+  <div class="text-center mb-4">
+    <img src="paypal.jpeg" alt="PayPal" width="100">
+    <img src="tarjetas.png" alt="Tarjeta de Crédito" width="100">
+    <img src="sinpe.png" alt="SINPE Móvil" width="100">
   </div>
 
-  <div class="form-group">
-    <label for="metodoPago">Seleccione el Método de Pago:</label>
-    <select class="form-control" id="metodoPago">
-      <option value="paypal">PayPal</option>
-      <option value="tarjeta">Tarjeta de Crédito</option>
-      <option value="sinpe">SINPE Móvil</option>
-    </select>
+  <div class="text-center">
+    <a href="pagar-paypal" class="btn btn-primary mr-3">Pagar con PayPal</a>
+    <a href="pagar-tarjeta" class="btn btn-primary mr-3">Pagar con Tarjeta de Crédito</a>
+    <a href="pagar-sinpe" class="btn btn-primary">Pagar con SINPE Móvil</a>
   </div>
-
-  <button type="button" class="btn btn-primary" onclick="realizarPago()">Pagar</button>
 </div>
 
-<script>
-  function realizarPago() {
-    var monto = document.getElementById("monto").value;
-    var metodoPago = document.getElementById("metodoPago").value;
-    
-    switch (metodoPago) {
-      case "paypal":
-        window.location.href = "https://www.paypal.com";
-        break;
-      case "tarjeta":
-        window.location.href = "https://www.tupaginadetarjetas.com";
-        break;
-      case "sinpe":
-        window.location.href = "https://www.sinpemovil.com";
-        break;
-      default:
-        alert("Seleccione un método de pago válido");
-    }
-  }
-</script>
-
 </body>
-</html>
+</htm
