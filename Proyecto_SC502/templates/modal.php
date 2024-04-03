@@ -1,3 +1,6 @@
+<?php
+//include 'rutina.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,12 +30,12 @@
                 <div class="modal-body modal-fade">
                     <div class="col-m-5 sidenav mt-5">
                         <form method="POST">
-                            <input type="text" name="Tipo" class="form-control mt-4 py-2"
+                            <input type="text" name="tipoRutina" class="form-control mt-4 py-2"
                                 placeholder="Tipo de Rutina" />
                             <div class="container mt-3">
                                 <div class="dropdown">
                                     <button type="button" class="btn btn-primary dropdown-toggle"
-                                        data-bs-toggle="dropdown">Dia</button>
+                                        data-bs-toggle="dropdown" name="diaRutina">Dia</button>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" value="Lunes">Lunes</a></li>
                                         <li><a class="dropdown-item" value="Martes">Martes</a></li>
@@ -51,7 +54,8 @@
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger btn-lg mt-0" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-success btn-lg mt-0" data-bs-dismiss="modal">Guardar</button>
+                    <button type="button" class="btn btn-success btn-lg mt-0" data-bs-dismiss="modal" name="btnAgregarRutina">Guardar</button>
+                    <?php include_once 'DAL/rutina.php';?>
                 </div>
             </div>
         </div>

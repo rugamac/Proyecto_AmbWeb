@@ -106,6 +106,7 @@ $sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutin
     </div>
     <?php }?>
 
+    <!-------------------- RUTINAS ------------------------>
 
     <div class="container-sm container-fluid">
         <div class="mt-5 p-4 bg-dark text-white">
@@ -138,7 +139,7 @@ $sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutin
                 ?>
             </tbody>
         </table>
-        <!--Boton CRUD Rutinas-->
+        <!--Boton agregar Rutinas-->
         <div class="mt-4 py-5">
             <button data-bs-toggle="modal" data-bs-target="#modalAgregarRutina"
                 class="btn btn-outline-success btn-lg px-4">Agregar Rutina</button>
