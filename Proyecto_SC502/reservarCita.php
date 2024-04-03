@@ -6,7 +6,28 @@
   <title>Reserva de Citas - Entrenadora Física</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-    /* Agregar estilos personalizados aquí */
+    body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    label {
+      font-weight: bold;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
@@ -43,15 +64,13 @@
   <script>
    $(document).ready(function() {
       $('#appointmentForm').submit(function(event) {
-        event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
-        
-        // Recuperar los valores del formulario
+        event.preventDefault(); 
+
         var nombre = $('#nombre').val();
         var email = $('#email').val();
         var fecha = $('#fecha').val();
         var hora = $('#hora').val();
-        
-        // Crear objeto de datos para enviar al backend
+
         var datos = {
           nombre: nombre,
           email: email,
@@ -59,21 +78,18 @@
           hora: hora
         };
         
-        // Realizar la solicitud AJAX
         $.ajax({
-          type: 'POST', // Método HTTP
-          url: 'tu_backend_url', // URL del backend donde se procesarán los datos
-          data: datos, // Datos a enviar al backend
+          type: 'POST', 
+          url: 'tu_backend_url',
+          data: datos, 
           success: function(response) {
-            // Manejar la respuesta exitosa del backend (si es necesario)
+
             console.log('Respuesta del backend:', response);
-            // Por ejemplo, mostrar un mensaje de éxito al usuario
+
             alert('Cita reservada con éxito!');
           },
           error: function(xhr, status, error) {
-            // Manejar el error en la solicitud AJAX
             console.error('Error en la solicitud AJAX:', error);
-            // Por ejemplo, mostrar un mensaje de error al usuario
             alert('Ha ocurrido un error al procesar la reserva de la cita. Por favor, inténtalo de nuevo más tarde.');
           }
         });
