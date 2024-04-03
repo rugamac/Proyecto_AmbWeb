@@ -2,7 +2,7 @@
 <?php 
 $id=$_GET["id"];
 include "DAL/conexion.php";
-$sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutina");
+$sqlE = Conecta()->query("select * from ejercicio where id_rutina=$id");
 ?>
 
 <!DOCTYPE html>
@@ -26,33 +26,71 @@ $sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutin
 </head>
 
 <body>
-<!-- Detalle de la rutina y mostrar sus ejercicios -->
-
-<div class="table-responsive container-sm mt-5">
-    <table class="table table-bordered table-dark table-striped table-hover">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Ejercicio</th>
-          <th>Sets</th>
-          <th>Maquina</th>
-          <th>Observaciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Remo TRX</td>
-          <td>10-8-6-4</td>
-          <td> </td>
-          <td>niguna</td>
 
 
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+    <!-- Detalle de la rutina y mostrar sus ejercicios -->
+
+    <!-- izquierda ---------------------------------------------------------------------------------------------->
+    <div class="container-fluid">
+        <div class="row content">
+            <div class="col-sm-4 sidenav mt-5">
+                <form method="POST">
+
+                    <input type="text" name="correo" class="form-control mt-4 py-2" placeholder="Nombre de Ejercicio" />
+
+                    <input type="text" name="correo" class="form-control mt-4 py-2" placeholder="Sets" />
+
+                    <input type="text" name="correo" class="form-control mt-4 py-2" placeholder="Maquina" />
+
+                    <input type="text" name="correo" class="form-control mt-4 py-2" placeholder="Observaciones" />
+
+                    <div class="text-center mt-3"><br>
+                        <button class="btn btn-success btn-lg p-1 px-4" name="btnRegistrar" value="ok">Guardar</button>
+                    </div>
+
+                </form>
+
+            </div>
+            <!-- Derecha --------------------------------------------------------------------------->
+
+            <div class="col-sm-8">
+                <h4 class="text-success display-4"><small>Lista de Ejercicios</small></h4>
+                <hr>
+                <div class="table-responsive container-sm mt-5">
+                    <table class="table table-bordered table-dark table-striped table-hover display-6">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th scope="col" class="text-success">Ejercicio</th>
+                                <th scope="col" class="text-success">Sets</th>
+                                <th scope="col" class="text-success">Maquina</th>
+                                <th scope="col" class="text-success">Observaciones</th>
+                                <th> </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                while($datosE=$sqlE->fetch_object()){ ?>
+                            <tr>
+                                <td><?= $datosE->id_ejercicio ?></td>
+                                <td><?= $datosE->nombre_ejercicio ?></td>
+                                <td><?= $datosE->setsE ?></td>
+                                <td><?= $datosE->maquina ?></td>
+                                <td><?= $datosE->observaciones ?></td>
+                                <td>
+                                    <button href="perfilUsuario.php?id=" class="btn btn-warning btn-lg px-4">Editar</button><br>
+                                    <button href="" class="btn btn-danger btn-lg px-4">Eliminar</button>
+                                </td>
+                            </tr>
+                            <?php }
+                ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 

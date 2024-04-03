@@ -22,33 +22,30 @@
 
 <body>
     <!-- -->
-    <div>
-        <div class="container-sm mt-5 pt-5 border col-md-4 bg-dark align-items-center justify-content-center">
-            <div class="col-lg-6 m-auto">
-                <div class="card-body">
-                    <form method="POST">
-                        <h1 class="text-success text-center mb-5 pb-2">Login</h1>
-                        <input type="email" name="correo" class="form-control mt-4 py-2"
-                            placeholder="Correo Electronico" />
+    <div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+					<form method="POST">
+                        <h1 class="text-success text-center mb-5 pb-2">CRUD</h1>
+                        
+                        <input type="text" name="correo" class="form-control mt-4 py-2"
+                            placeholder="Nombre de Ejercicio" />
+                            
+                        <input type="text" name="correo" class="form-control mt-4 py-2"
+                            placeholder="Sets" />
 
-                        <input type="password" name="password" class="form-control mt-4 mb-1 py-2"
-                            placeholder="Contraseña" />
-                        <a href="loginUsuario.php" class="nav-link text-primary">Olvidé la contraseña</a>
-                        <!-- restablecer password: baja prioridad, Agregar al final -->
-                        <?php
-                            include "DAL/conexion.php";
-                            include "registrarUsuario.php";
-                            ?>
+						<input type="text" name="correo" class="form-control mt-4 py-2"
+                            placeholder="Maquina" />
+                            
+                        <input type="text" name="correo" class="form-control mt-4 py-2"
+                            placeholder="Observaciones" />
+
                         <div class="text-center mt-3"><br>
-                            <button class="btn btn-success p-2" name="btnRegistrar" value="ok">Registrarse</button>
-                            <a href="crearUsuario.php" class="nav-link text-primary my-3">Crear cuenta</a>
+                            <button class="btn btn-success p-1 px-4" name="btnAgregarEjercicio">Añadir</button>
                         </div>
 
                     </form>
-                </div>
-            </div>
 
-        </div>
     </div>
 
 

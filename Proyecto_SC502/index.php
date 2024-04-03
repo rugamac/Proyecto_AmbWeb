@@ -71,3 +71,8 @@
 </body>
 
 </html>
+
+<?php
+// footer
+include "templates/footer.php";
+?>
