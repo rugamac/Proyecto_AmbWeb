@@ -41,16 +41,43 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
-    // Agregar código JavaScript aquí para manejar la reserva de citas
-    document.getElementById('appointmentForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
-      
-      // Aquí puedes manejar la lógica de envío del formulario (por ejemplo, mediante AJAX)
-      // Por ahora, solo se imprimirán los datos del formulario en la consola
-      console.log('Nombre:', document.getElementById('nombre').value);
-      console.log('Correo Electrónico:', document.getElementById('email').value);
-      console.log('Fecha de la Cita:', document.getElementById('fecha').value);
-      console.log('Hora de la Cita:', document.getElementById('hora').value);
+   $(document).ready(function() {
+      $('#appointmentForm').submit(function(event) {
+        event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
+        
+        // Recuperar los valores del formulario
+        var nombre = $('#nombre').val();
+        var email = $('#email').val();
+        var fecha = $('#fecha').val();
+        var hora = $('#hora').val();
+        
+        // Crear objeto de datos para enviar al backend
+        var datos = {
+          nombre: nombre,
+          email: email,
+          fecha: fecha,
+          hora: hora
+        };
+        
+        // Realizar la solicitud AJAX
+        $.ajax({
+          type: 'POST', // Método HTTP
+          url: 'tu_backend_url', // URL del backend donde se procesarán los datos
+          data: datos, // Datos a enviar al backend
+          success: function(response) {
+            // Manejar la respuesta exitosa del backend (si es necesario)
+            console.log('Respuesta del backend:', response);
+            // Por ejemplo, mostrar un mensaje de éxito al usuario
+            alert('Cita reservada con éxito!');
+          },
+          error: function(xhr, status, error) {
+            // Manejar el error en la solicitud AJAX
+            console.error('Error en la solicitud AJAX:', error);
+            // Por ejemplo, mostrar un mensaje de error al usuario
+            alert('Ha ocurrido un error al procesar la reserva de la cita. Por favor, inténtalo de nuevo más tarde.');
+          }
+        });
+      });
     });
   </script>
 </body>
