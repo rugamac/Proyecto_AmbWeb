@@ -75,7 +75,7 @@ function edad($fecha_nacimiento) {
             objetivos='$objetivos',
             fecha_nacimiento='$edad' where id_detalle=$id_detalle;");
             if($sql==1){//si se actualiza correctamente
-                header("location: index.php"); //ir al index
+                header("location: ../"); //ir al index
             }else{
                 echo '<div class="alert alert-warning text-center"> Error al actualizar datos </div>';
             }

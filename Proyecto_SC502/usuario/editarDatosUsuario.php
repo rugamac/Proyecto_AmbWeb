@@ -1,6 +1,6 @@
 <?php 
 $id=$_GET["id"];
-include "DAL/conexion.php";
+include "../DAL/conexion.php";
 $sql=conecta()->query("select * from detalles_usuario where id_detalle=$id");
 $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apellido from usuario where id_usuario=$id");
 ?>
@@ -101,7 +101,7 @@ $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apel
                 </div>
             </form>
             <?php //
-        include "DAL/usuario.php";
+        include "../DAL/usuario.php";
         
 
         ?>
@@ -115,3 +115,4 @@ $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apel
 </body>
 
 </html>
+

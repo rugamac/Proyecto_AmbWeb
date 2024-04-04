@@ -1,7 +1,7 @@
 <!--Recibir id del usuario en especifico-->
 <?php 
 $id=$_GET["id"];
-include "DAL/conexion.php";
+include "../DAL/conexion.php";
 $sqlE = Conecta()->query("select * from ejercicio where id_rutina=$id");
 ?>
 
@@ -90,7 +90,7 @@ $sqlE = Conecta()->query("select * from ejercicio where id_rutina=$id");
                 </div>
             </div>
         </div>
-    </div>
+    </div><br>
 
 
 
@@ -102,3 +102,8 @@ $sqlE = Conecta()->query("select * from ejercicio where id_rutina=$id");
 </body>
 
 </html>
+
+<?php
+// footer
+include "../templates/footer.php";
+?>

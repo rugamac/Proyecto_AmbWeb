@@ -61,7 +61,7 @@
             </div>
 
         </div>
-    </div>
+    </div><br>
 
 
 
@@ -75,3 +75,8 @@
 </body>
 
 </html>
+
+<?php
+// footer
+include "templates/footer.php";
+?>

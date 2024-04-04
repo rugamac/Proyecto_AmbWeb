@@ -29,6 +29,7 @@
                 <!-- Modal body -->
                 <div class="modal-body modal-fade">
                     <div class="col-m-5 sidenav mt-5">
+
                         <form method="POST">
                             <input type="text" name="tipoRutina" class="form-control mt-4 py-2"
                                 placeholder="Tipo de Rutina" />
@@ -48,15 +49,18 @@
                                     </ul>
                                 </div>
                             </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger btn-lg mt-0"
+                                    data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-success btn-lg mt-0" data-bs-dismiss="modal"
+                                    name="btnAgregarRutina" value="ok">Guardar</button>
+                            </div>
                         </form>
+                        <?php include_once '../DAL/rutina.php';?>
                     </div>
                 </div>
                 <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger btn-lg mt-0" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-success btn-lg mt-0" data-bs-dismiss="modal" name="btnAgregarRutina">Guardar</button>
-                    <?php include_once 'DAL/rutina.php';?>
-                </div>
+
             </div>
         </div>
     </div>
@@ -116,7 +120,7 @@
                 <!-- Modal body -->
                 <div class="modal-body modal-fade">
                     <div class="col-m-5 sidenav mt-5">
-                            <h2>Desea eliminar esta rutina?</h2><br>
+                        <h2>Desea eliminar esta rutina?</h2><br>
                     </div>
                 </div>
                 <!-- Modal footer -->
