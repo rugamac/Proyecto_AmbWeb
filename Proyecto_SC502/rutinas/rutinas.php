@@ -1,9 +1,8 @@
-<!--Recibir id del usuario asociado a rutinas en especifico-->
 <?php 
-$id=$_GET["id"];
+$idUsuario=$_GET["id"];
 include "../DAL/conexion.php";
-include "../templates/modal.php";
-$sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutina where id_usuario=$id");
+
+$sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutina where id_usuario=$idUsuario");
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +29,7 @@ $sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutin
 </head>
 
 <body>
+    <script src="..\js\jquery-3.7.1.min.js"></script><!--JQUERY LOCAL-->
 
     <!-------------------- RUTINAS ------------------------>
 
@@ -46,39 +46,34 @@ $sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutin
                     <th scope="col"></th>
                 </tr>
             </thead>
-            <tbody>
-                <?php
-                while($datosR=$sqlR->fetch_object()){ ?>
-                <tr>
-                    <td><?= $datosR->id_rutina ?></td>
-                    <td><?= $datosR->nombre_rutina ?></td>
-                    <td><?= $datosR->dia_rutina ?></td>
-                    <td>
-                        <a href="ejercicios.php?id=<?= $datosR->id_rutina ?>"><button class="btn btn-success btn-lg"><i
-                                    class="fa-solid fa-dumbbell ms-2 me-3"></i>Ejercicios</button></a>
-                        <button data-bs-toggle="modal" data-bs-target="#modalEditarRutina"
-                            class="btn btn-warning btn-lg px-4">Editar Rutina</button>
-                        <button data-bs-toggle="modal" data-bs-target="#modalEliminarRutina"
-                            class="btn btn-danger btn-lg px-4">Eliminar</button>
-                    </td>
-                </tr>
-                <?php }
-                ?>
-            </tbody>
+            
+            
+            <!-- Se llama listado con plantilla hecha en JS -->
+            <tbody id="listadoRutinas"></tbody> 
+        
         </table>
-        <!--Boton agregar Rutinas-->
-        <div class="mt-4 py-5">
-            <button data-bs-toggle="modal" data-bs-target="#modalAgregarRutina"
-                class="btn btn-outline-success btn-lg px-4">Agregar Rutina</button>
+
+        <!----    Boton agregar Rutinas    ---->
+        <div class="container-sm container-fluid bg-dark pt-2 py-4 rounded px-4">
+            <form method="POST" id="formAddRutina">
+                <input type="hidden" id="idUsuario" value="<?=$idUsuario?>"><!-- Para vincular con foreign key entre rutina y usuario-->
+                <input type="text" id="tipoRutina" class="form-form-control-sm mt-4 py-2 rounded-3 border-0"
+                    placeholder="Tipo de Rutina" />
+                <input type="text" id="diaRutina" class="form-form-control-sm mt-4 py-2 rounded-3 border-0 mx-2"
+                    placeholder="Dia"/>
+                <button id="agregarRutina" type="submit" class="btn btn-success btn-lg" value="ok" >Guardar</button>
+            </form>
         </div>
 
 
     </div>
 
+<script src="../js/rutinaJS.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
 </body>
+
 
 </html>
 

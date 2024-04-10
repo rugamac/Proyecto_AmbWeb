@@ -9,7 +9,6 @@ create table usuario
     segundo_apellido VARCHAR(50) NOT NULL,
     correo VARCHAR(50) NOT NULL,
     tipo_suscripcion VARCHAR(50) NOT NULL,--"ninguno" por defecto al crear cuenta, solo lo cambia la admin. (el usuario no inserta dato)
-    fecha_creacion_cuenta DATE NOT NULL,--sistema obtiene automaticamente al crear cuenta con variable tipo fecha
     rol VARCHAR(15) NOT NULL, --
     password VARCHAR(255),
     PRIMARY KEY(id_usuario)

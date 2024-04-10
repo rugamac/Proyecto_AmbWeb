@@ -2,7 +2,7 @@
 <?php 
 $id=$_GET["id"];
 include "../DAL/conexion.php";
-include "../templates/modal.php";
+//include "../templates/modal.php";
 $sql=conecta()->query("select * from detalles_usuario where id_detalle=$id");
 $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apellido from usuario where id_usuario=$id");
 $sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutina where id_usuario=$id");

@@ -48,7 +48,7 @@
                             placeholder="Confirmar contraseña" />
 
                         <?php
-                            include "DAL/conexion.php";
+                            include "../DAL/conexion.php";
                             include "registrarUsuario.php";
                             ?>
                         <div class="text-center mt-3"><br>
@@ -78,5 +78,5 @@
 
 <?php
 // footer
-include "templates/footer.php";
+include "../templates/footer.php";
 ?>
