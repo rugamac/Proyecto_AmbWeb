@@ -1,23 +1,20 @@
 <?php
-
+include '../DAL/conexion.php';
 // Eliminar RUTINA
-/*
-function eliminarR(){
+
     if(isset($_POST['idRutina'])) {
-        
+        ECHO 'PHP: ';
         $id = $_POST['idRutina'];
-        echo 'id del backend es: '.$id.$_POST['idRutina'];
-        echo 'heloo';
-        $sqlDeleteR=Conecta()->query("DELETE FROM rutina WHERE id_rutina = $id"); 
-        $resultado = mysqli_query($connection, $sqlDeleteR);
+        echo 'eliminar Rutina con ID: '.$id;
+        $sqlDeleteR="DELETE FROM rutina WHERE id_rutina = $id"; 
+        $resultado = Conecta()->query($sqlDeleteR);//ejecutar delete en sql
     
         if (!$resultado) {
         die('Consulta fallida');
         }
-        echo "Rutina eliminada";  
+        echo " eliminada exitosamente";  
     
     }
-}
 
-*/
+
 ?>
