@@ -12,9 +12,9 @@
   <h2 class="mb-4">Realizar Pago</h2>
   
   <div class="text-center mb-4">
-    <img src="paypal.jpeg" alt="PayPal" width="100">
-    <img src="tarjetas.png" alt="Tarjeta de Crédito" width="100">
-    <img src="sinpe.png" alt="SINPE Móvil" width="100">
+    <img src="../img/paypal.jpeg" alt="PayPal" width="100">
+    <img src="../img/tarjetas.png" alt="Tarjeta de Crédito" width="100">
+    <img src="../img/sinpe.png" alt="SINPE Móvil" width="100">
   </div>
 
   <div class="text-center">
