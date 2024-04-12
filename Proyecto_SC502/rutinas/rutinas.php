@@ -32,7 +32,7 @@ $sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutin
     <script src="..\js\jquery-3.7.1.min.js"></script>
     <!--JQUERY LOCAL-->
 
-    <!-------------------- RUTINAS ------------------------>
+<!-------------------- RUTINAS ------------------------>
 
     <div class="container-sm container-fluid">
         <div class="mt-5 p-4 bg-dark text-white">

@@ -2,9 +2,13 @@
 
 include '../DAL/conexion.php';
 
-    $readSQL = "SELECT * FROM rutina";
-    $resultado = Conecta()->query($readSQL);    //ejecutar insert en sql
+    if(isset($_POST['id'])){
 
+    $id=$_POST['id'];     
+    $readSQL = "SELECT * FROM rutina where id_usuario = $id";
+
+
+    $resultado = Conecta()->query($readSQL);    //ejecutar insert en sql
     
     if(!$resultado){    //si no hay resultado, consulta fallida
         die('Consulta fallida' . mysqli_error($conexion));
@@ -24,6 +28,6 @@ include '../DAL/conexion.php';
         }
         $jsonString = json_encode($json); //decodifica Json (de json a string nuevamente)
         echo $jsonString;
-
+    }
 
 ?>

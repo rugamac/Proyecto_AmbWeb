@@ -3,6 +3,7 @@ $(document).ready(function () {
     ListadoRutina();
 
     let editar = false;//edicion desactivada
+    
 
     //CRUD AGREGAR
     $('#formAddRutina').submit(e => {//selecciona elemento con ID='rutinaform' y capturar su evento submit
@@ -35,12 +36,15 @@ $(document).ready(function () {
     //CRUD LISTADO Y FUNCION()
 
     function ListadoRutina() {
+        let = idUser =$('#idUsuario').val();
         $.ajax({
             url: '../rutinas/readRutina.php',
-            type: 'GET',            //get porque es solo extraer informacion
+            type: 'POST',            //Post porque envia un id de FK
+            data: {id: idUser},     //id de FK
             success: function (respuesta) {
-                let rutina = JSON.parse(respuesta);
-                let plantilla = '';
+                let rutina = JSON.parse(respuesta); //meter JSON en variable
+                console.log('id es '+respuesta);
+                let plantilla = ''; //declaracion de plantilla vacio
                 rutina.forEach(rutina => {
                     plantilla += `
                     <tr>
@@ -48,7 +52,7 @@ $(document).ready(function () {
                         <td>${rutina.name}</td>
                         <td>${rutina.day}</td>
                         <td>
-                            <a href="../ejercicios/ejercicios.php?id=${rutina.idRutina}"><button class="btn btn-success btn-lg"><i                                      class="fa-solid fa-dumbbell ms-2 me-3"></i>Ejercicios</button></a>
+                            <a href="../ejercicio/ejercicio.php?id=${rutina.idRutina}"><button class="btn btn-success btn-lg"><i class="fa-solid fa-dumbbell ms-2 me-3"></i>Ejercicios</button></a>
                             <button class="updateRutina btn btn-warning btn-lg px-4" value="${rutina.idRutina}">Editar Rutina</button>
                             <button class="deleteRutina btn btn-danger btn-lg" value="${rutina.idRutina}">Eliminar</button>
                         </td>
@@ -89,8 +93,6 @@ $(document).ready(function () {
         });
         ListadoRutina();//recargar listado
     });
-
-    //EDITAR RUTINA (edicion de datos)
  
 
 });

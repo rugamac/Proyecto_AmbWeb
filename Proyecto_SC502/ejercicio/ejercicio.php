@@ -1,8 +1,8 @@
 <!--Recibir id del usuario en especifico-->
 <?php 
-$id=$_GET["id"];
+$idRutina=$_GET["id"];
 include "../DAL/conexion.php";
-$sqlE = Conecta()->query("select * from ejercicio where id_rutina=$id");
+$sqlE = Conecta()->query("select * from ejercicio where id_rutina=$idRutina");
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@ $sqlE = Conecta()->query("select * from ejercicio where id_rutina=$id");
     <link
         href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>usuario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -26,6 +26,7 @@ $sqlE = Conecta()->query("select * from ejercicio where id_rutina=$id");
 </head>
 
 <body>
+    <script src="..\js\jquery-3.7.1.min.js"></script>
 
 
     <!-- Detalle de la rutina y mostrar sus ejercicios -->
@@ -34,15 +35,19 @@ $sqlE = Conecta()->query("select * from ejercicio where id_rutina=$id");
     <div class="container-fluid">
         <div class="row content">
             <div class="col-sm-4 sidenav mt-5">
-                <form method="POST">
+                <form method="POST" id="formAddEjercicio">
 
-                    <input type="text" name="correo" class="form-control mt-4 py-2" placeholder="Nombre de Ejercicio" />
+                    <input type="hidden" id="idEjercicio">
 
-                    <input type="text" name="correo" class="form-control mt-4 py-2" placeholder="Sets" />
+                    <input type="hidden" id="idRutina" value="<?=$idRutina?>">
 
-                    <input type="text" name="correo" class="form-control mt-4 py-2" placeholder="Maquina" />
+                    <input type="text" id="nombreEjercicio" class="form-control mt-4 py-2" placeholder="Nombre de Ejercicio" />
 
-                    <input type="text" name="correo" class="form-control mt-4 py-2" placeholder="Observaciones" />
+                    <input type="text" id="setsEjercicio" class="form-control mt-4 py-2" placeholder="Sets" />
+
+                    <input type="text" id="maquinaEjercicio" class="form-control mt-4 py-2" placeholder="Maquina" />
+
+                    <input type="text" id="observacionesEjercicio" class="form-control mt-4 py-2" placeholder="Observaciones" />
 
                     <div class="text-center mt-3"><br>
                         <button class="btn btn-success btn-lg p-1 px-4" name="btnRegistrar" value="ok">Guardar</button>
@@ -69,23 +74,7 @@ $sqlE = Conecta()->query("select * from ejercicio where id_rutina=$id");
 
                             </tr>
                         </thead>
-                        <tbody>
-                            <?php
-                while($datosE=$sqlE->fetch_object()){ ?>
-                            <tr>
-                                <td><?= $datosE->id_ejercicio ?></td>
-                                <td><?= $datosE->nombre_ejercicio ?></td>
-                                <td><?= $datosE->setsE ?></td>
-                                <td><?= $datosE->maquina ?></td>
-                                <td><?= $datosE->observaciones ?></td>
-                                <td>
-                                    <button href="perfilUsuario.php?id=" class="btn btn-warning btn-lg px-4">Editar</button><br>
-                                    <button href="" class="btn btn-danger btn-lg px-4">Eliminar</button>
-                                </td>
-                            </tr>
-                            <?php }
-                ?>
-                        </tbody>
+                        <tbody id="listadoEjercicios"></tbody>
                     </table>
                 </div>
             </div>
@@ -95,7 +84,7 @@ $sqlE = Conecta()->query("select * from ejercicio where id_rutina=$id");
 
 
 
-
+    <script src="../js/ejercicioJS.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
