@@ -39,28 +39,5 @@ $(document).ready(function () {
         }
 
     });
-    /*
-        let carga = `<div class="spinner-border text-success"></div>`;//animacion
-        //INICIO SESION
-        $('#formLogin').submit(e => {
-            e.preventDefault();
-            const postDataL = { //crear objeto que almacena los input - guardar datos de texfield en variable
-                correo: $('#correo').val(),
-                password: $('#password').val(), //obtener valor del campo con el id (name)
-            };
-            if ($('#correo').val().trim() !== '' && $('#password').val().trim()) {
-                $.post('../usuario/login.php', postDataL, function (respuesta) { //direccion a enviar a backend de agregar, objeto, funcion
-                    if (respuesta === 'success') { // Suponiendo que el servidor envía 'success' si el inicio de sesión es exitoso
-                        alert('Inicio sesion exitoso');
-                        window.location.href = '../index.php?=';
-                    $('#carga').html(carga);//ejecutar animacion carga
-                    }else{
-                        alert("Inicio sesion fallido");
-                    }
-                });
-            }else{
-                alert("Campos vacios");
-            }
-        });
-    */
+
 });

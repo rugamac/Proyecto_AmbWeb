@@ -30,12 +30,11 @@
             <?php 
             include "login.php";
             ?>
-            <input type="email" name="correo" class="form-control mt-4 py-2" placeholder="Correo Electronico" />
+            <input type="email" name="correo" class="form-control my-4 py-2" placeholder="Correo Electronico" />
             <input type="password" name="password" class="form-control mt-4 py-2" placeholder="Constraseña" />
 
             <div class="text-center mt-5"><br>
-                <button href="#" class="btn btn-success p-2"
-                 name="btnIngresar" value="ok">Iniciar Sesion</button>
+                <button href="#" class="btn btn-success p-2" name="btnIngresar" value="ok">Iniciar Sesion</button>
                 <a href="crearUsuario.php" class="nav-link text-primary my-3">No tengo una cuenta</a>
             </div>
 
