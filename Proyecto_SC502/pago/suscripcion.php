@@ -72,8 +72,8 @@
   <script>
     $(document).ready(function() {
       var usuarios = [
-        { id: 1, nombre: 'Entrenadora', apellido: '1', nivel: 'principiante' },
-        { id: 2, nombre: 'Cliente', apellido: '2', nivel: 'intermedio' }
+        { id: 1, nombre: 'Laura', apellido: 'Montoya', nivel: 'Avanzado' },
+        { id: 2, nombre: 'Raul', apellido: 'Cortes', nivel: 'Intermedio' }
       ];
 
       function cargarUsuarios() {
