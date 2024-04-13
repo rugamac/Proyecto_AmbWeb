@@ -8,7 +8,7 @@ create table usuario
     primer_apellido VARCHAR(50) NOT NULL,
     segundo_apellido VARCHAR(50) NOT NULL,
     correo VARCHAR(50) NOT NULL,
-    tipo_suscripcion VARCHAR(50) NOT NULL,--"ninguno" por defecto al crear cuenta, solo lo cambia la admin. (el usuario no inserta dato)
+    tipo_suscripcion VARCHAR(50) NOT NULL,
     rol VARCHAR(15) NOT NULL, --
     password VARCHAR(255),
     PRIMARY KEY(id_usuario)
@@ -17,15 +17,15 @@ create table usuario
 create table detalles_usuario
 (
     id_detalle INT AUTO_INCREMENT NOT NULL, 
-    fecha_nacimiento DATE NOT NULL,
-    altura_persona FLOAT(10) NOT NULL,
-    peso_persona FLOAT(10) NOT NULL,
-    lesiones VARCHAR(50) NOT NULL,
-    medicamentos VARCHAR(100) NOT NULL,
-    embarazo VARCHAR(50) NOT NULL,
-    cirugia VARCHAR(200) NOT NULL,
-    objetivos TEXT NOT NULL,
-    id_usuario int(3),
+    fecha_nacimiento DATE,
+    altura_persona FLOAT(10),
+    peso_persona FLOAT(10),
+    lesiones VARCHAR(50),
+    medicamentos VARCHAR(100),
+    embarazo VARCHAR(50),
+    cirugia VARCHAR(200),
+    objetivos TEXT,
+    id_usuario int(3) NOT NULL,
     PRIMARY KEY(id_detalle),
     FOREIGN KEY(id_usuario) REFERENCES usuario(id_usuario)
 );
@@ -56,8 +56,8 @@ CREATE TABLE IF NOT EXISTS ejercicio (
 -- Crear la tabla checkIn (fotos de progreso mensual)
 CREATE TABLE IF NOT EXISTS check_in (
     id_check INT AUTO_INCREMENT NOT NULL,
-    mes VARCHAR(50) NOT NULL,                               --un mes contiene varias fotos
-    anno DATE NOT NULL,                                              --un año contiene varios meses con sus respectivas fotos
+    mes VARCHAR(50) NOT NULL,
+    anno DATE NOT NULL,
     nota_mensual TEXT NOT NULL,
     id_usuario int(3),
     PRIMARY KEY(id_check),

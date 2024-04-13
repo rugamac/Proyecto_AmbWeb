@@ -12,6 +12,7 @@ $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apel
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
     <title>Editar Informacion</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -28,10 +29,8 @@ $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apel
 </head>
 
 <body>
+    <script src="..\js\jquery-3.7.1.min.js"></script>
     <!--  -->
-    <?php
-    $datosU = $sqlU -> fetch_object();//para mostrar nombre
-    while ($datos = $sql -> fetch_object()) { ?>
     <!-- //recorrer todos los datos de la tabla-->
 
     <div class="container mt-3">
@@ -44,29 +43,29 @@ $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apel
     </div>
     <div class="container mt-3 container-fluid m-auto">
         <div class="mt-4 p-5 bg-dark">
-            <form method="POST">
+            <form method="POST" id="postInsertDetalles">
                 <input type="hidden" name="id_detalle" value="<?= $id ?>">
                 <div class="row justify-content-center m-auto">
                     <!-- columna -->
 
                     <div class="col-sm-5 mb-5">
                         <h3 class="text-success">Altura: </h3>
-                        <input type="text" class="form-control" name="altura" value="<?= $datos->altura_persona ?>">
+                        <input type="text" class="form-control" name="altura">
                     </div>
 
                     <div class="col-sm-5 mb-5">
                         <h3 class=" text-success">Peso: </h3>
-                        <input type="text" class="form-control" name="peso" value="<?= $datos->peso_persona ?>">
+                        <input type="text" class="form-control" name="peso" >
                     </div>
 
                     <div class="col-sm-5 mb-5">
                         <h3 class=" text-success">Lesiones: </h3>
-                        <input type="text" class="form-control" name="lesiones" value="<?= $datos->lesiones ?>">
+                        <input type="text" class="form-control" name="lesiones" >
                     </div>
 
                     <div class="col-sm-5 mb-5">
                         <h3 class=" text-success">Medicamentos: </h3>
-                        <input type="text" class="form-control" name="medicamentos" value="<?= $datos->medicamentos ?>">
+                        <input type="text" class="form-control" name="medicamentos">
                     </div>
                 </div>
 
@@ -75,22 +74,22 @@ $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apel
 
                     <div class="col-sm-5 mb-5">
                         <h3 class=" text-success">Embarazo: </h3>
-                        <input type="text" class="form-control" name="embarazo" value="<?= $datos->embarazo ?>">
+                        <input type="text" class="form-control" name="embarazo" >
                     </div>
 
                     <div class="col-sm-5 mb-5">
                         <h3 class=" text-success">Cirugia: </h3>
-                        <input type="text" class="form-control" name="cirugia" value="<?= $datos->cirugia ?>">
+                        <input type="text" class="form-control" name="cirugia" >
                     </div>
 
                     <div class="col-sm-5 mb-5">
                         <h3 class=" text-success">Objetivo: </h3>
-                        <input type="text" class="form-control" name="objetivos" value="<?= $datos->objetivos ?>">
+                        <input type="text" class="form-control" name="objetivos">
                     </div>
 
                     <div class="col-sm-5 mb-5">
                         <h3 class=" text-success">Fecha nacimiento: </h3>
-                        <input type="date" class="form-control" name="edad" value="<?= $datos->fecha_nacimiento ?>">
+                        <input type="date" class="form-control" name="edad" >
                     </div>
 
                 </div>
@@ -107,12 +106,10 @@ $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apel
         ?>
         </div>
     </div>
-    <?php }?>
-
+    <script src="../js/loginJS.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
 </body>
 
 </html>
-

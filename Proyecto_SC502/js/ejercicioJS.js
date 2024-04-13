@@ -40,7 +40,7 @@ $(document).ready(function () {
         let = idRutina =$('#idRutina').val();
         $.ajax({
             url: '../ejercicio/readEjercicio.php',
-            type: 'POST',            //get porque es solo extraer informacion
+            type: 'POST',
             data: {id: idRutina},
             success: function (respuesta) {
                 let Ejercicio = JSON.parse(respuesta); //meter JSON en variable

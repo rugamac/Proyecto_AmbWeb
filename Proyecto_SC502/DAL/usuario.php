@@ -1,37 +1,6 @@
 <?php
 
 require_once "conexion.php";
-/*
-function DefinirContrasena($pCorreo, $pPassword) { //aun no funcional
-    $retorno = false;
-
-    try {
-        $oConexion = Conecta();
-
-        // formato de datos utf8
-        if(mysqli_set_charset($oConexion, "utf8")){
-            $stmt = $oConexion->prepare("update Usuario set password = ? where correo = ?");
-            $stmt->bind_param("ss", $iPassword, $iCorreo);
-
-            // set parametros y luego ejecutar
-            $iCorreo = $pCorreo;
-            $iPassword = $pPassword;
-
-            if ($stmt->execute()){
-                $retorno = true;
-            }
-        }
-
-    } catch (\Throwable $th) {
-        //almacenar información en bitacora $th
-        //throw $th;
-        echo $th;
-    }finally{
-        Desconectar($oConexion);
-    }
-
-    return $retorno;
-}*/
 
 function edad($fecha_nacimiento) {
 
@@ -84,7 +53,5 @@ function edad($fecha_nacimiento) {
             echo '<div class="alert alert-warning text-center"> Campos vacios </div>';
         }
     }
-
-
 
 ?>

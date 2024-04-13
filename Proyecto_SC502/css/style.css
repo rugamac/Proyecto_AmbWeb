@@ -1,5 +1,5 @@
 /* Custom properties */
-
+/*
 :root {
     --primario: rgb(29, 104, 54);
     --primarioOscuro: rgb(16, 70, 34);
@@ -10,72 +10,15 @@
 
     --fuentePrincipal: 'Arial';
 }
-
-
-html {
-    box-sizing: border-box;
-    font-size: 62.5%/*1 rem = 10 px*/
-    ;
-}
-
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
-}
+*/
 
 
 /* Globales */
 
-body {
-    background-color: var(--primario);
-    font-size: 3.5rem;
-    line-height: 1.5;
-}
-
-p {
-    font-size: 2rem;
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--blanco);
-}
-
-a {
-    text-decoration: none;
-}
 
 img {
     width: 25rem;
     height: 25rem;
-}
-
-h1,
-h2,
-h3 {
-    text-align: center;
-    color: var(--secundario);
-    font-family: var(--fuentePrincipal);
-}
-
-h1 {
-    font-size: 4rem;
-}
-
-h2 {
-    font-size: 3.2rem;
-}
-
-h3 {
-    font-size: 2.4rem;
-}
-
-h1 span {
-    font-size: 2rem;
-}
-
-#javaLink {
-    font-size: 2.4rem;
-    color: var(--blanco);
-    font-weight: bold;
 }
 
 /* Header */
@@ -84,57 +27,18 @@ h1 span {
     display: flex;
     justify-content: center;
 }
-
-.header__logo {
-    margin: 3rem 0;
-}
-
-
 /* Footer */
 
 .footer {
-    background-color: var(--primarioOscuro);
-    padding: 1rem 0;
-    margin-top: 2rem;
+    position: fixed;
+    bottom: 0;
+    width: 200%;
+    text-align: center;
+    padding: 10px;
 }
 
 .footer__texto {
     font-family: var(--fuentePrincipal);
     text-align: center;
     font-size: 2.2rem;
-}
-
-
-
-.navegacion__enlace:hover,
-.navegacion__enlace--activo {
-    color: var(--secundario);
-}
-
-
-/* Página del tema */
-
-@media (min-width: 768px) {
-    .tema {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 2;
-    }
-}
-
-/*estilo de login*/
-.loginBox{
-    width: 300px;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #FFF;
-    text-align: center;
-}
-
-.contenedor2 {
-    margin: 15%;
-    background: rgb(250, 243, 233);
 }
