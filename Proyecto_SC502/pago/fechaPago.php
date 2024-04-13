@@ -9,56 +9,69 @@
 <body>
   <div class="container">
     <h1>Fechas de Pago de Citas</h1>
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="fechaInicio">Fecha de Inicio:</label>
-            <input type="date" class="form-control" id="fechaInicio" name="fechaInicio">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="fechaFin">Fecha de Fin:</label>
-            <input type="date" class="form-control" id="fechaFin" name="fechaFin">
-          </div>
-        </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label for="fechaInicio">Fecha de Inicio:</label>
+        <input type="date" class="form-control" id="fechaInicio">
       </div>
-      <button type="submit" class="btn btn-primary btn-block" name="generarFechas">Generar Fechas de Pago</button>
-    </form>
-
-    <div id="fechasPago">
-      <?php
-      if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['generarFechas'])) {
-          $fechaInicio = $_POST['fechaInicio'];
-          $fechaFin = $_POST['fechaFin'];
-          
-          if (!empty($fechaInicio) && !empty($fechaFin)) {
-
-              $fechasPago = generarFechasPago($fechaInicio, $fechaFin);
-              echo '<ul class="list-group">';
-              foreach ($fechasPago as $fecha) {
-                  echo '<li class="list-group-item">' . $fecha . '</li>';
-              }
-              echo '</ul>';
-          } else {
-              echo '<p class="text-danger">Por favor, selecciona ambas fechas.</p>';
-          }
-      }
-
-      function generarFechasPago($fechaInicio, $fechaFin) {
-          $inicio = new DateTime($fechaInicio);
-          $fin = new DateTime($fechaFin);
-
-          $fechasPago = array();
-          while ($inicio <= $fin) {
-              $fechasPago[] = $inicio->format('Y-m-d');
-              $inicio->modify('+1 month');
-          }
-          return $fechasPago;
-      }
-      ?>
+      <div class="col-md-6">
+        <label for="fechaFin">Fecha de Fin:</label>
+        <input type="date" class="form-control" id="fechaFin">
+      </div>
     </div>
+    <button class="btn btn-primary btn-block" id="generarFechas">Generar Fechas de Pago</button>
+    <div id="fechasPago" class="mt-3">
+    </div>
+    <a href="pago.php" id="pagar" class="btn btn-success btn-block mt-3" style="display: none;">Pagar</a>
   </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    document.getElementById('generarFechas').addEventListener('click', function() {
+      var fechaInicio = document.getElementById('fechaInicio').value;
+      var fechaFin = document.getElementById('fechaFin').value;
+      var fechasPago = generarFechasPago(fechaInicio, fechaFin);
+
+      mostrarFechasPago(fechasPago);
+    });
+
+    function generarFechasPago(fechaInicio, fechaFin) {
+      var fechasPago = [];
+      var inicio = new Date(fechaInicio);
+      var fin = new Date(fechaFin);
+
+      var fechaActual = new Date(inicio);
+      while (fechaActual <= fin) {
+        fechasPago.push(new Date(fechaActual));
+        fechaActual.setMonth(fechaActual.getMonth() + 1);
+      }
+      return fechasPago;
+    }
+
+    function mostrarFechasPago(fechasPago) {
+      var fechasPagoDiv = document.getElementById('fechasPago');
+      fechasPagoDiv.innerHTML = '';
+
+      if (fechasPago.length === 0) {
+        fechasPagoDiv.innerHTML = '<p>No se encontraron fechas de pago.</p>';
+        return;
+      }
+
+      var ul = document.createElement('ul');
+      ul.classList.add('list-group');
+      fechasPago.forEach(function(fecha) {
+        var li = document.createElement('li');
+        li.classList.add('list-group-item');
+        li.textContent = fecha.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        ul.appendChild(li);
+      });
+      fechasPagoDiv.appendChild(ul);
+
+      // Mostrar el botón de pago
+      document.getElementById('pagar').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
