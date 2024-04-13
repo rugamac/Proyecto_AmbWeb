@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestión de Usaurios</title>
+  <title>Gestión de Usuarios</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
   <div class="container">
-    <h1>Gestión de Usaurios</h1>
+    <h1>Gestión de Usuarios</h1>
     <div class="btn-group">
-      <button class="btn btn-primary" id="agregarRol">Agregar Rol</button>
+      <button class="btn btn-primary" id="agregarUsuario">Agregar Usuario</button>
     </div>
     <table class="table">
       <thead>
@@ -18,9 +18,13 @@
           <th>ID</th>
           <th>Nombre</th>
           <th>Apellido</th>
+          <th>Nivel</th>
           <th>Acciones</th>
         </tr>
       </thead>
+      <tbody id="tablaUsuarios">
+        <!-- Aquí se cargarán los usuarios dinámicamente -->
+      </tbody>
     </table>
   </div>
 
@@ -34,17 +38,29 @@
           </button>
         </div>
         <div class="modal-body">
-          <form id="formusuario">
+          <form id="formUsuario">
             <input type="hidden" id="usuarioId">
             <div class="form-group">
-              <label for="rolNombre">Nombre del usaurio:</label>
+              <label for="usuarioNombre">Nombre:</label>
               <input type="text" class="form-control" id="usuarioNombre" required>
+            </div>
+            <div class="form-group">
+              <label for="usuarioApellido">Apellido:</label>
+              <input type="text" class="form-control" id="usuarioApellido" required>
+            </div>
+            <div class="form-group">
+              <label for="usuarioNivel">Nivel:</label>
+              <select class="form-control" id="usuarioNivel" required>
+                <option value="principiante">Principiante</option>
+                <option value="intermedio">Intermedio</option>
+                <option value="avanzado">Avanzado</option>
+              </select>
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" id="guardarUsaurio">Guardar</button>
+          <button type="button" class="btn btn-primary" id="guardarUsuario">Guardar</button>
         </div>
       </div>
     </div>
@@ -55,61 +71,69 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
     $(document).ready(function() {
-      var usaurios = [
-        { id: 1, nombre: 'Entrenadora' },
-        { id: 2, nombre: 'Cliente' }
+      var usuarios = [
+        { id: 1, nombre: 'Entrenadora', apellido: '1', nivel: 'principiante' },
+        { id: 2, nombre: 'Cliente', apellido: '2', nivel: 'intermedio' }
       ];
 
-      function cargarRoles() {
-        var tablaUsuarios = $('#tablaUsaurio');
+      function cargarUsuarios() {
+        var tablaUsuarios = $('#tablaUsuarios');
         tablaUsuarios.empty();
-        usaurios.forEach(function(usuario) {
-          tablaUsuarios.append('<tr><td>' + usuario.id + '</td><td>' + usuario.nombre + '</td><td><button class="btn btn-primary btn-sm editarUsaurio" data-id="' + usaurio.id + '">Editar</button> <button class="btn btn-danger btn-sm eliminarUsuario" data-id="' + usaurio.id + '">Eliminar</button></td></tr>');
+        usuarios.forEach(function(usuario) {
+          tablaUsuarios.append('<tr><td>' + usuario.id + '</td><td>' + usuario.nombre + '</td><td>' + usuario.apellido + '</td><td>' + usuario.nivel + '</td><td><button class="btn btn-primary btn-sm editarUsuario" data-id="' + usuario.id + '">Editar</button> <button class="btn btn-danger btn-sm eliminarUsuario" data-id="' + usuario.id + '">Eliminar</button></td></tr>');
         });
       }
-      cargarUsuario();
+      cargarUsuarios();
 
       $('#agregarUsuario').click(function() {
         $('#modalUsuarioLabel').text('Agregar Usuario');
-        $('#usaurioId').val('');
-        $('#uasuarioNombre').val('');
+        $('#usuarioId').val('');
+        $('#usuarioNombre').val('');
+        $('#usuarioApellido').val('');
+        $('#usuarioNivel').val('principiante');
         $('#modalUsuario').modal('show');
       });
 
       $(document).on('click', '.editarUsuario', function() {
         var id = $(this).data('id');
-        var usaurio = usaurio.find(function(r) { return r.id === id; });
-        $('#modalUsuarioLabel').text('Editar Usaurio');
+        var usuario = usuarios.find(function(u) { return u.id === id; });
+        $('#modalUsuarioLabel').text('Editar Usuario');
         $('#usuarioId').val(usuario.id);
         $('#usuarioNombre').val(usuario.nombre);
+        $('#usuarioApellido').val(usuario.apellido);
+        $('#usuarioNivel').val(usuario.nivel);
         $('#modalUsuario').modal('show');
       });
 
-      $('#guardarUsaurio').click(function() {
+      $('#guardarUsuario').click(function() {
         var id = $('#usuarioId').val();
         var nombre = $('#usuarioNombre').val().trim();
-        if (nombre === '') {
-          alert('Por favor, ingresa un nombre para el Usuario.');
+        var apellido = $('#usuarioApellido').val().trim();
+        var nivel = $('#usuarioNivel').val();
+        if (nombre === '' || apellido === '') {
+          alert('Por favor, ingresa nombre y apellido para el Usuario.');
           return;
         }
         if (id === '') { 
-          var nuevoUsuario = { id: Usuario.length + 1, nombre: nombre };
-          usuario.push(nuevoUsuario);
+          var nuevoUsuario = { id: usuarios.length + 1, nombre: nombre, apellido: apellido, nivel: nivel };
+          usuarios.push(nuevoUsuario);
         } else { 
-          var index = usuario.findIndex(function(usuario) { return usuario.id === parseInt(id); });
+          var index = usuarios.findIndex(function(u) { return u.id === parseInt(id); });
           if (index !== -1) {
-            usuario[index].nombre = nombre;
+            usuarios[index].nombre = nombre;
+            usuarios[index].apellido = apellido;
+            usuarios[index].nivel = nivel;
           }
         }
         $('#modalUsuario').modal('hide');
-        cargarUsuario();
+        cargarUsuarios();
       });
 
-      $(document).on('click', '.eliminarUsaurio', function() {
+      $(document).on('click', '.eliminarUsuario', function() {
         if (confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
           var id = $(this).data('id');
-          usuario = usuario.filter(function(usaurio) { return usaurio.id !== id; });
-          cargarUsuario();
+          usuarios = usuarios.filter(function(u) { return u.id !== id; });
+          cargarUsuarios();
         }
       });
     });
