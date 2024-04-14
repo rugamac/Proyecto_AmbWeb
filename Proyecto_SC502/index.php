@@ -49,7 +49,16 @@
             <tbody>
                 <?php
                 include "DAL/conexion.php";
-                $sql = conecta()->query("select id_usuario, nombre, primer_apellido, tipo_suscripcion from usuario");
+                    $adminId=$_SESSION['id'];
+                if($_SESSION['rol']==='1'){
+                    //para admin
+                    $sql = conecta()->query("select id_usuario, nombre, primer_apellido, tipo_suscripcion from usuario where id_usuario!=$adminId");
+                
+                }else{
+                    //para usuarios
+                    $UserId =$_SESSION['id'];
+                    $sql = conecta()->query("select id_usuario, nombre, primer_apellido, tipo_suscripcion from usuario where id_usuario = $UserId");
+                }
                 while($datos=$sql->fetch_object()){ ?>
                 <tr>
                     <td><?= $datos->id_usuario ?></td>

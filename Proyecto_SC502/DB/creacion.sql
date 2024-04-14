@@ -1,6 +1,13 @@
 create DATABASE proyectoSQL;
 use proyectoSQL;
 
+create table roles
+(
+    id_rol INT NOT NULL,
+    rol VARCHAR(20)NOT NULL,
+    PRIMARY KEY(id_rol)
+);
+
 create table usuario
 (
     id_usuario INT AUTO_INCREMENT NOT NULL, 
@@ -9,10 +16,17 @@ create table usuario
     segundo_apellido VARCHAR(50) NOT NULL,
     correo VARCHAR(50) NOT NULL,
     tipo_suscripcion VARCHAR(50) NOT NULL,
-    rol VARCHAR(15) NOT NULL, --
+    id_rol
     password VARCHAR(255),
     PRIMARY KEY(id_usuario)
+    FOREIGN KEY(id_usuario) REFERENCES roles(id_rol)
 );
+
+
+
+INSERT INTO `roles` (`id_rol`, `rol`) VALUES ('1', 'admin'), ('2', 'user');
+
+
 
 create table detalles_usuario
 (

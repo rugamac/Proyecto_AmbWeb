@@ -19,6 +19,7 @@
                 
                 $_SESSION['usuario']=$datos->correo;//extrae el correo
                 $_SESSION['id']=$datos->id_usuario;//extrae el id del usuario autenticado
+                $_SESSION['rol']=$datos->id_rol;//extrae el rol
                 echo "success";
                 header("Location: ..\index.php");
             }else{
@@ -26,7 +27,7 @@
                 
             }
 
-            }else{echo "<script'>alert('Campos vacios')</script>";
+            }else{echo "<script>alert('Campos vacios')</script>";
             }
             
 
