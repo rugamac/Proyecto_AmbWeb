@@ -20,6 +20,9 @@
                 $_SESSION['usuario']=$datos->correo;//extrae el correo
                 $_SESSION['id']=$datos->id_usuario;//extrae el id del usuario autenticado
                 $_SESSION['rol']=$datos->id_rol;//extrae el rol
+                $_SESSION['apellido1']=$datos->primer_apellido;
+                $_SESSION['apellido2']=$datos->segundo_apellido;
+                $_SESSION['nombre']=$datos->nombre;
                 echo "success";
                 header("Location: ..\index.php");
             }else{

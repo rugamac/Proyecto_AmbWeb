@@ -1,8 +1,12 @@
 <?php 
-$id=$_GET["id"];
+session_start();
+
+//verificar si se accedio con login
+if(empty($_SESSION['usuario'])){ //si no hay una sesion usuario
+    header("location: usuario/vistaLogin.php");//devolver al login
+}
+
 include "../DAL/conexion.php";
-$sql=conecta()->query("select * from detalles_usuario where id_detalle=$id");
-$sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apellido from usuario where id_usuario=$id");
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +40,7 @@ $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apel
     <div class="container mt-3">
         <div class="mt-4 p-5 bg-dark text-white">
             <h1 class="text-center text-success">
-                <?= $datosU->nombre . " " . $datosU->primer_apellido . " " . $datosU->segundo_apellido?></h1><br>
+                <?= $_SESSION['nombre'] . " " . $_SESSION['apellido1'] . " " . $_SESSION['apellido2']?></h1><br>
         </div>
     </div>
 
@@ -44,7 +48,6 @@ $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apel
     <div class="container mt-3 container-fluid m-auto">
         <div class="mt-4 p-5 bg-dark">
             <form method="POST" id="postInsertDetalles">
-                <input type="hidden" name="id_detalle" value="<?= $id ?>">
                 <div class="row justify-content-center m-auto">
                     <!-- columna -->
 
@@ -95,8 +98,7 @@ $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apel
                 </div>
 
                 <div class="text-center mt-3"><br>
-                    <button class="btn btn-success py-2 px-4 btn-lg" name="btnActualizarDatos"
-                        value="ok">Guardar</button>
+                    <button class="btn btn-success py-2 px-4 btn-lg" name="btnAgregarDatos" value="ok" href="../index.php">Guardar</button>
                 </div>
             </form>
             <?php //

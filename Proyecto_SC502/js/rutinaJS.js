@@ -3,7 +3,6 @@ $(document).ready(function () {
     ListadoRutina();
 
     let editar = false;//edicion desactivada
-    
 
     //CRUD AGREGAR
     $('#formAddRutina').submit(e => {//selecciona elemento con ID='rutinaform' y capturar su evento submit
@@ -36,15 +35,15 @@ $(document).ready(function () {
     //CRUD LISTADO Y FUNCION()
 
     function ListadoRutina() {
-        let = idUser =$('#idUsuario').val();
+        let = idUser = $('#idUsuario').val();
         $.ajax({
             url: '../rutinas/readRutina.php',
             type: 'POST',            //Post porque envia un id de FK
-            data: {id: idUser},     //id de FK
+            data: { id: idUser },     //id de FK
             success: function (respuesta) {
                 let rutina = JSON.parse(respuesta); //meter JSON en variable
-                console.log('id es '+respuesta);
-                let plantilla = ''; //declaracion de plantilla vacio
+                let plantilla = ''; //declaracion de plantilla vacio, tiene todos los elementos para admin
+                let plantillaUser = ''; //declaracion de plantilla vacio, este no puede modificar
                 rutina.forEach(rutina => {
                     plantilla += `
                     <tr>
@@ -58,8 +57,25 @@ $(document).ready(function () {
                         </td>
                     </tr>
                         `
+                    plantillaUser += `
+                        <tr>
+                            <td>${rutina.idRutina}</td>
+                            <td>${rutina.name}</td>
+                            <td>${rutina.day}</td>
+                            <td>
+                                <a href="../ejercicio/ejercicio.php?id=${rutina.idRutina}"><button class="btn btn-success btn-lg"><i class="fa-solid fa-dumbbell ms-2 me-3"></i>Ejercicios</button></a>
+                            </td>
+                        </tr>
+                            `
                 });
-                $('#listadoRutinas').html(plantilla);    //en tbody identificado con id se le inserta el html credo con la platilla de arriba hecho con JS
+                let rol = $('#Rol').val();//extraer rol de input
+
+                if (rol == 1) {//si tiene rol admin
+                    $('#listadoRutinas').html(plantilla);    //en tbody identificado con id se le inserta el html credo con la platilla de arriba hecho con JS
+                }
+                if(rol ==2){
+                    $('#listadoRutinas').html(plantillaUser);
+                }
             }
         });
     }
@@ -93,6 +109,6 @@ $(document).ready(function () {
         });
         ListadoRutina();//recargar listado
     });
- 
+
 
 });

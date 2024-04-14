@@ -16,7 +16,6 @@ $(document).ready(function () {
                     password: $('#password').val(),
                 };
 
-
                 //verifica que los campos no esten vacios (trim() elimina espacios en blanco)
                 if ($('#nombre').val().trim() !== '' &&
                     $('#primerApellido').val().trim() !== '' &&
@@ -26,7 +25,7 @@ $(document).ready(function () {
                     $('#passwordConfirm').val().trim() !== '') {
                     $.post('../usuario/registrarUsuario.php', postData, function (respuesta) { //direccion a enviar a backend de agregar, objeto, funcion
                         console.log(respuesta);
-
+                        window.location.href = 'insertarDatosUsuario.php';
                     });
                 } else {
                     alert('Campos vacios');

@@ -1,4 +1,10 @@
 <?php 
+session_start();
+
+//verificar si se accedio con login
+if(empty($_SESSION['usuario'])){ //si no hay una sesion usuario
+    header("location: usuario/vistaLogin.php");//devolver al login
+} 
 $idUsuario=$_GET["id"];
 include "../DAL/conexion.php";
 
@@ -29,10 +35,13 @@ $sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutin
 
 <body>
     <script src="..\js\jquery-3.7.1.min.js"></script>
+
+
     <!--JQUERY LOCAL-->
 
-<!-------------------- RUTINAS ------------------------>
+    <!-------------------- RUTINAS ------------------------>
 
+    <input type="hidden" value="<?php echo $_SESSION['rol'];?>" id="Rol" />
     <div class="container-sm container-fluid">
         <div class="mt-5 p-4 bg-dark text-white">
             <h2 class="text-start text-success display-6">Rutinas</h2>
@@ -56,15 +65,24 @@ $sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutin
         <!----    Boton agregar Rutinas    ---->
         <div class="container-sm container-fluid bg-dark pt-2 py-4 rounded px-4">
             <form method="POST" id="formAddRutina">
+
                 <input type="hidden" id="idRutina">
                 <input type="hidden" id="idUsuario" value="<?=$idUsuario?>">
                 <!-- Para vincular con foreign key entre rutina y usuario-->
-                <input type="text" id="tipoRutina" class="form-form-control-sm mt-4 py-2 rounded-3 border-0"
-                    placeholder="Tipo de Rutina" />
-                <input type="text" id="diaRutina" class="form-form-control-sm mt-4 py-2 rounded-3 border-0 mx-2"
-                    placeholder="Dia" />
-                <button id="agregarRutina" type="submit" class="btn btn-success btn-lg" value="ok">Guardar</button>
+                <?php
+                if($_SESSION['rol']=="1"){
+
+                echo "<input type='text' id='tipoRutina' class='form-form-control-sm mt-4 py-2 rounded-3 border-0'
+                    placeholder='Tipo de Rutina' />
+                <input type='text' id='diaRutina' class='form-form-control-sm mt-4 py-2 rounded-3 border-0 mx-2'
+                    placeholder='Dia' />
+                    <button id='agregarRutina' type='submit' class='btn btn-success btn-lg' value='ok'>Guardar</button>";
+                }
+
+                ?>
+
             </form>
+
         </div>
 
 

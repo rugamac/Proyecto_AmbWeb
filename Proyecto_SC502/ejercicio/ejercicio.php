@@ -1,5 +1,10 @@
-<!--Recibir id del usuario en especifico-->
 <?php 
+session_start();
+
+//verificar si se accedio con login
+if(empty($_SESSION['usuario'])){ //si no hay una sesion usuario
+    header("location: usuario/vistaLogin.php");//devolver al login
+} 
 $idRutina=$_GET["id"];
 include "../DAL/conexion.php";
 $sqlE = Conecta()->query("select * from ejercicio where id_rutina=$idRutina");
@@ -30,8 +35,9 @@ $sqlE = Conecta()->query("select * from ejercicio where id_rutina=$idRutina");
 
 
     <!-- Detalle de la rutina y mostrar sus ejercicios -->
-
+    <input type="hidden" value="<?php echo $_SESSION['rol'];?>" id="Rol" />
     <!-- izquierda ---------------------------------------------------------------------------------------------->
+
     <div class="container-fluid">
         <div class="row content">
             <div class="col-sm-4 sidenav mt-5">
@@ -41,17 +47,22 @@ $sqlE = Conecta()->query("select * from ejercicio where id_rutina=$idRutina");
 
                     <input type="hidden" id="idRutina" value="<?=$idRutina?>">
 
-                    <input type="text" id="nombreEjercicio" class="form-control mt-4 py-2" placeholder="Nombre de Ejercicio" />
+                    <input type="text" id="nombreEjercicio" class="form-control mt-4 py-2"
+                        placeholder="Nombre de Ejercicio" />
 
                     <input type="text" id="setsEjercicio" class="form-control mt-4 py-2" placeholder="Sets" />
 
                     <input type="text" id="maquinaEjercicio" class="form-control mt-4 py-2" placeholder="Maquina" />
 
-                    <input type="text" id="observacionesEjercicio" class="form-control mt-4 py-2" placeholder="Observaciones" />
+                    <input type="text" id="observacionesEjercicio" class="form-control mt-4 py-2"
+                        placeholder="Observaciones" />
 
-                    <div class="text-center mt-3"><br>
-                        <button class="btn btn-success btn-lg p-1 px-4" name="btnRegistrar" value="ok">Guardar</button>
-                    </div>
+                    <?php
+                if($_SESSION['rol']=="1"){
+                    echo "<div class='text-center mt-3'><br>
+                    <button class='btn btn-success btn-lg p-1 px-4' name='btnRegistrar' value='ok'>Guardar</button>
+                </div>";
+                    }?>
 
                 </form>
 

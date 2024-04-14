@@ -49,8 +49,7 @@
                             placeholder="Confirmar contraseña" />
 
                         <div class="text-center mt-5"><br>
-                            <button href="vistaLogin.php" class="btn btn-success p-2"
-                                id="btnRegistrar" value="ok">Registrarse</button>
+                            <button class="btn btn-success p-2" id="btnRegistrar" value="ok">Registrarse</button>
                             <a href="vistaLogin.php" class="nav-link text-primary my-3">Ya tengo una cuenta</a>
                         </div>
 

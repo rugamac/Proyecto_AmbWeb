@@ -37,16 +37,17 @@ $(document).ready(function () {
     //CRUD LISTADO Y FUNCION()
 
     function ListadoEjercicio() {
-        let = idRutina =$('#idRutina').val();
+        let = idRutina = $('#idRutina').val();
         $.ajax({
             url: '../ejercicio/readEjercicio.php',
             type: 'POST',
-            data: {id: idRutina},
+            data: { id: idRutina },
             success: function (respuesta) {
                 let Ejercicio = JSON.parse(respuesta); //meter JSON en variable
-                let plantilla = ''; //declaracion de plantilla vacio
+                let plantilla = ''; //declaracion de plantilla vacio, para admin
+                let plantillaUser = ''; //declaracion de plantilla vacio, este no puede modificar o aliminar
                 Ejercicio.forEach(Ejercicio => {
-                        plantilla += `
+                    plantilla += `
                             <tr>
                                 <td>${Ejercicio.idEjercicio}</td>
                                 <td>${Ejercicio.nombre}</td>
@@ -59,8 +60,25 @@ $(document).ready(function () {
                                 </td>
                             </tr>
                             `
+                    plantillaUser += `
+                            <tr>
+                                <td>${Ejercicio.idEjercicio}</td>
+                                <td>${Ejercicio.nombre}</td>
+                                <td>${Ejercicio.sets}</td>
+                                <td>${Ejercicio.maquina}</td>
+                                <td>${Ejercicio.observaciones}</td>
+                                <td>
+                                </td>
+                            </tr>
+                            `
                 });
-                $('#listadoEjercicios').html(plantilla);    //en tbody identificado con id se le inserta el html credo con la platilla de arriba hecho con JS
+                let rol = $('#Rol').val();//extraer rol de input
+                if (rol == 1) {//si tiene rol admin
+                    $('#listadoEjercicios').html(plantilla);    //en tbody identificado con id se le inserta el html credo con la platilla de arriba hecho con JS
+                }
+                if(rol ==2){//para usuario
+                    $('#listadoEjercicios').html(plantillaUser);
+                }
             }
         });
     }
@@ -88,14 +106,14 @@ $(document).ready(function () {
             const Ejercicio = JSON.parse(respuesta);
             //y esos datos se muestran en los textfield
             $('#nombreEjercicio').val(Ejercicio.nombre), //obtener valor del campo con el id (name)
-            $('#setsEjercicio').val(Ejercicio.sets),
-            $('#maquinaEjercicio').val(Ejercicio.maquina),
-            $('#observacionesEjercicio').val(Ejercicio.observaciones),
-            $('#idEjercicio').val(Ejercicio.idEjercicio),//foreign key
-            editar = true;    //activar modo edicion
+                $('#setsEjercicio').val(Ejercicio.sets),
+                $('#maquinaEjercicio').val(Ejercicio.maquina),
+                $('#observacionesEjercicio').val(Ejercicio.observaciones),
+                $('#idEjercicio').val(Ejercicio.idEjercicio),//foreign key
+                editar = true;    //activar modo edicion
         });
         ListadoEjercicio();//recargar listado
     });
- 
+
 
 });

@@ -1,9 +1,14 @@
-<!--Recibir id del usuario en especifico-->
-<?php 
-$id=$_GET["id"];
+<?php
+session_start();
+
+//verificar si se accedio con login
+if(empty($_SESSION['usuario'])){ //si no hay una sesion usuario
+    header("location: usuario/vistaLogin.php");//devolver al login
+} 
+$id=$_SESSION['id'];//se puede usar el id desde session pero por ahora se queda asi
 include "../DAL/conexion.php";
 //include "../templates/modal.php";
-$sql=conecta()->query("select * from detalles_usuario where id_detalle=$id");
+$sql=conecta()->query("select * from detalles_usuario where id_usuario=$id");
 $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apellido from usuario where id_usuario=$id");
 $sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutina where id_usuario=$id");
 ?>
