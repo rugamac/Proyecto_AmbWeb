@@ -5,7 +5,7 @@ session_start();
 if(empty($_SESSION['usuario'])){ //si no hay una sesion usuario
     header("location: usuario/vistaLogin.php");//devolver al login
 } 
-$id=$_SESSION['id'];//se puede usar el id desde session pero por ahora se queda asi
+$id=$_GET['id'];//se puede usar el id desde session pero por ahora se queda asi
 include "../DAL/conexion.php";
 //include "../templates/modal.php";
 $sql=conecta()->query("select * from detalles_usuario where id_usuario=$id");
@@ -114,6 +114,10 @@ $sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutin
     <div class="mt-4 py-5">
         <a href="../rutinas/rutinas.php?id=<?= $datosU->id_usuario ?>"
             class="btn btn-outline-success btn-lg">Rutinas</a>
+    </div>
+    <div class="mt-4 py-5">
+        <a href="../checkin/check-in.php?id=<?= $id ?>"
+            class="btn btn-outline-success btn-lg">Check-In</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

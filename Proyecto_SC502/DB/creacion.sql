@@ -68,21 +68,21 @@ CREATE TABLE IF NOT EXISTS ejercicio (
 
 
 -- Crear la tabla checkIn (fotos de progreso mensual)
-CREATE TABLE IF NOT EXISTS check_in (
+CREATE TABLE notaMes (
     id_check INT AUTO_INCREMENT NOT NULL,
-    mes VARCHAR(50) NOT NULL,
-    anno DATE NOT NULL,
-    nota_mensual TEXT NOT NULL,
-    id_usuario int(3),
+    nota_mensual TEXT,
+    id_usuario int(111),
     PRIMARY KEY(id_check),
     foreign key(id_usuario) references usuario(id_usuario) 
 );
 
 -- Crear la tabla fotos (foto vinculado a un mes especifico) --varias fotos se guardan en un check-in (mes y año especifico)
-CREATE TABLE IF NOT EXISTS fotos (
+CREATE TABLE fotos (
     id_foto INT AUTO_INCREMENT NOT NULL,
-    ruta_foto VARCHAR (200),                                 
-    id_check int(3),
+    mes VARCHAR(50) NOT NULL,
+    anno VARCHAR(50) NOT NULL,
+    ruta_foto VARCHAR (250),                                 
+    id_usuario int(11),
     PRIMARY KEY(id_foto),
-    foreign key(id_check) references check_in(id_check) 
+    foreign key(id_usuario) references usuario(id_usuario) 
 );
