@@ -1,3 +1,33 @@
+<?php
+// Establecer conexión a la base de datos
+$servername = "tu_servidor";
+$username = "tu_usuario";
+$password = "tu_contraseña";
+$dbname = "tu_base_de_datos";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}
+
+// Obtener el ID del usuario (debería obtenerlo de algún lugar)
+$id_usuario = 1; 
+
+// Consulta SQL para obtener las fechas de pago y montos correspondientes
+$sql = "SELECT fecha_pago, monto FROM FechasPago WHERE id_usuario = $id_usuario";
+$result = $conn->query($sql);
+
+$fechasPago = array();
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $fechasPago[] = array("fecha" => $row["fecha_pago"], "monto" => $row["monto"]);
+    }
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,69 +39,15 @@
 <body>
   <div class="container">
     <h1>Fechas de Pago de Citas</h1>
-    <div class="row">
-      <div class="col-md-6">
-        <label for="fechaInicio">Fecha de Inicio:</label>
-        <input type="date" class="form-control" id="fechaInicio">
-      </div>
-      <div class="col-md-6">
-        <label for="fechaFin">Fecha de Fin:</label>
-        <input type="date" class="form-control" id="fechaFin">
-      </div>
-    </div>
-    <button class="btn btn-primary btn-block" id="generarFechas">Generar Fechas de Pago</button>
     <div id="fechasPago" class="mt-3">
+      <ul class="list-group">
+        <?php foreach ($fechasPago as $fechaPago): ?>
+          <li class="list-group-item">
+            <?php echo date("d/m/Y", strtotime($fechaPago["fecha"])); ?> - Monto a pagar: $<?php echo $fechaPago["monto"]; ?>
+          </li>
+        <?php endforeach; ?>
+      </ul>
     </div>
-    <a href="pago.php" id="pagar" class="btn btn-success btn-block mt-3" style="display: none;">Pagar</a>
   </div>
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script>
-    document.getElementById('generarFechas').addEventListener('click', function() {
-      var fechaInicio = document.getElementById('fechaInicio').value;
-      var fechaFin = document.getElementById('fechaFin').value;
-      var fechasPago = generarFechasPago(fechaInicio, fechaFin);
-
-      mostrarFechasPago(fechasPago);
-    });
-
-    function generarFechasPago(fechaInicio, fechaFin) {
-      var fechasPago = [];
-      var inicio = new Date(fechaInicio);
-      var fin = new Date(fechaFin);
-
-      var fechaActual = new Date(inicio);
-      while (fechaActual <= fin) {
-        fechasPago.push(new Date(fechaActual));
-        fechaActual.setMonth(fechaActual.getMonth() + 1);
-      }
-      return fechasPago;
-    }
-
-    function mostrarFechasPago(fechasPago) {
-      var fechasPagoDiv = document.getElementById('fechasPago');
-      fechasPagoDiv.innerHTML = '';
-
-      if (fechasPago.length === 0) {
-        fechasPagoDiv.innerHTML = '<p>No se encontraron fechas de pago.</p>';
-        return;
-      }
-
-      var ul = document.createElement('ul');
-      ul.classList.add('list-group');
-      fechasPago.forEach(function(fecha) {
-        var li = document.createElement('li');
-        li.classList.add('list-group-item');
-        li.textContent = fecha.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-        ul.appendChild(li);
-      });
-      fechasPagoDiv.appendChild(ul);
-
-      // Mostrar el botón de pago
-      document.getElementById('pagar').style.display = 'block';
-    }
-  </script>
 </body>
 </html>
