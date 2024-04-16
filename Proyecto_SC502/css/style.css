@@ -1,16 +1,5 @@
 /* Custom properties */
-/*
-:root {
-    --primario: rgb(29, 104, 54);
-    --primarioOscuro: rgb(16, 70, 34);
-    --secundario: rgb(73, 73, 73);
-    --secundarioOscuro: black;
-    --blanco: #FFF;
-    --negro: #000;
 
-    --fuentePrincipal: 'Arial';
-}
-*/
 
 
 /* Globales */
@@ -18,24 +7,19 @@
 
 /* Header */
 
-.header {
+
+#headerP {
     display: flex;
-    justify-content: center;
+    height: 60px;
+    background-color: #2f836e;
 }
 /* Footer */
 
 .footer {
     position: fixed;
     bottom: 0;
-    width: 200%;
-    text-align: center;
-    padding: 10px;
-}
-
-.footer__texto {
-    font-family: var(--fuentePrincipal);
-    text-align: center;
-    font-size: 2.2rem;
+    width: 100%;
+    height: 7%;
 }
 
 .imgUpload{

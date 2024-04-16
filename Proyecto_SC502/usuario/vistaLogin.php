@@ -7,8 +7,7 @@
 
     <title>Login</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="../css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -26,15 +25,18 @@
     <div class="card mt-5 m-auto bg-dark align-items-center justify-content-center" style="width:520px; height:600px">
 
         <form method="POST" id="formLogin" action="">
-            <h1 class="text-success text-center mb-5 pb-2">Iniciar Sesion</h1>
+            <h1 class="text-success text-center mb-5 pb-2">Iniciar Sesión</h1>
             <?php 
             include "login.php";
             ?>
-            <input type="email" name="correo" class="form-control my-4 py-2" placeholder="Correo Electronico" />
-            <input type="password" name="password" class="form-control mt-4 py-2" placeholder="Constraseña" />
+            <p>Correo Electronico:</p>
+            <input type="email" name="correo" class="form-control mb-4" placeholder="******@correo.com" />
+
+            <p>Constraseña:</p>
+            <input type="password" name="password" class="form-control mb-4 " placeholder="********" />
 
             <div class="text-center mt-5"><br>
-                <button href="#" class="btn btn-success p-2" name="btnIngresar" value="ok">Iniciar Sesion</button>
+                <button href="#" class="btn btn-success p-2" name="btnIngresar" value="ok">Iniciar Sesión</button>
                 <a href="crearUsuario.php" class="nav-link text-primary my-3">No tengo una cuenta</a>
             </div>
 

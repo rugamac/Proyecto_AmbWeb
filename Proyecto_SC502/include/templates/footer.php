@@ -1,3 +1,3 @@
 <footer class="footer text-center bg-dark">
-    <p>Proyecto Final - Todos los derechos Reservados 2024.</p>
+    <h4 class="text-center">Proyecto Final - Todos los derechos Reservados 2024.</h4>
 </footer>

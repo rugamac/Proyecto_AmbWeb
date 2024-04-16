@@ -14,11 +14,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -30,8 +30,6 @@
     <!--SESSION-->
     <div class="text-white justify-content-between" id="headerP">
 
-        <h3 class="col-6 mt-2 mx-3"><?php echo $_SESSION["usuario"];?></h3>
-        <a href="usuario/cerrarSesion.php" class="btn btn-primary btn-sm my-2 mx-3">Cerrar Sesion</>
     </div>
     <!-- listado clientes -->
     <label class="p-5"> </label>
@@ -48,7 +46,7 @@
             </thead>
             <tbody>
                 <?php
-                include "DAL/conexion.php";
+                include "../DAL/conexion.php";
                     $adminId=$_SESSION['id'];
                 if($_SESSION['rol']==='1'){
                     //para admin
@@ -66,10 +64,15 @@
                     <td><?= $datos->primer_apellido ?></td>
                     <td><?= $datos->tipo_suscripcion ?></td>
                     <td>
-                        <a href="usuario/perfilUsuario.php?id=<?= $datos->id_usuario ?>"
-                            class="btn btn-success btn-lg"><i class="fa-solid fa-dumbbell ms-2 me-3"></i>Perfil</a>
-                        <a href="" class="btn btn-warning btn-lg"><i
-                                class="fa-solid fa-desktop ms-2 me-3"></i>Sistema</a>
+                        <button href="usuario/perfilUsuario.php?id=<?= $datos->id_usuario ?>"
+                            class="btn btn-success btn-lg">Suscripciones</button>
+                        <!--dropdown dentro de un modal para cambiar suscripcion (admin)
+                            vista de tarjetas de suscripcion, que redirige a metodos de pagos (user)-->
+                        <button href="usuario/perfilUsuario.php?id=<?= $datos->id_usuario ?>"
+                            class="btn btn-success btn-lg">Pago</button>
+                        <!--cambiar fecha de pago con input string, dia del mes con modal.(boton editar solo lo ve admin)
+                            el usuario ve estos datos en la vista de perfil usuario-->
+
                     </td>
                 </tr>
                 <?php }
@@ -88,7 +91,7 @@
 
     <?php
 // footer
-include "templates/footer.php";
+include "../templates/footer.php";
 ?>
 </body>
 

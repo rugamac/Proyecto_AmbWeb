@@ -87,9 +87,10 @@ CREATE TABLE fotos (
     foreign key(id_usuario) references usuario(id_usuario) 
 );
 --Crear la tabla fecha pago
-CREATE TABLE FechasPago (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE administracion (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    pago VARCHAR(20), --ejemplo: los 20 de cada mes
+    monto DECIMAL(10, 2),
     id_usuario INT,
-    fecha_pago DATE,
-    monto DECIMAL(10, 2)
+    foreign key(id_usuario) references usuario(id_usuario) 
 );

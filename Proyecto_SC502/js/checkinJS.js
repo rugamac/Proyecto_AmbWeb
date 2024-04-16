@@ -30,8 +30,8 @@ $(document).on('click', '#btnBuscar', function ListadoFotos() {
         img.forEach(img => {
           plantilla += `
           <div class="card-header">
-                          <h2>${img.mes} del ${img.anno}</h2>
-                          <hr class="border-top border-dark opacity-25">
+                          <h2 class="text-success">${img.mes} del ${img.anno}</h2>
+                          <hr class="border-top border-success opacity-50">
                           <h5>Nota:</h5>
                           <p><?php $nota?> buen progreso </p>
                       </div>
