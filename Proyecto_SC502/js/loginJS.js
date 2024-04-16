@@ -25,7 +25,7 @@ $(document).ready(function () {
                     $('#passwordConfirm').val().trim() !== '') {
                     $.post('../usuario/registrarUsuario.php', postData, function (respuesta) { //direccion a enviar a backend de agregar, objeto, funcion
                         console.log(respuesta);
-                        window.location.href = 'insertarDatosUsuario.php';
+                        window.location.href = 'insertarDatosUsuario.php';//redireccionar a detalles usuario
                     });
                 } else {
                     alert('Campos vacios');
