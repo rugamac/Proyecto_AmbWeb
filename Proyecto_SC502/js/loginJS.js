@@ -16,7 +16,7 @@ $(document).ready(function () {
                     password: $('#password').val(),
                 };
 
-                //verifica que los campos no esten vacios (trim() elimina espacios en blanco)
+                //verifica que los campos no esten vacios (trim() elimina espacios en blanco).
                 if ($('#nombre').val().trim() !== '' &&
                     $('#primerApellido').val().trim() !== '' &&
                     $('#segundoApellido').val().trim() !== '' &&

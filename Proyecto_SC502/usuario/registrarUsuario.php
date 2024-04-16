@@ -26,7 +26,7 @@ if(isset($_POST["correo"])){
         $sql=Conecta()->query("insert into usuario (nombre, primer_apellido, segundo_apellido, correo, tipo_suscripcion, id_rol, PASSWORD)
         values ('$nombre', '$primerApellido', '$segundoApellido', '$correo', 'ninguno', 2, '$password');");
 
-        if($sql==1){//alertas de insert
+        if($sql==1){//alertas de insert.
             echo 'Usuario registrado';
         }else{
             echo 'Error al registrar';
