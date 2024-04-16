@@ -5,12 +5,17 @@ if(empty($_SESSION['usuario'])){
     header("location: usuario/vistaLogin.php");
 } 
 
+$rol=$_SESSION['rol'];
+
 include "../DAL/conexion.php";
 
-$id=$_SESSION['id'];
-
-
-
+//para evitar problemas usuario usa id sesion y admin del post
+if($rol==1){//para admin
+    $id=$_GET['id'];
+}
+if($rol==2){//para usuario
+    $id=$_SESSION['id'];
+}
 
 
 
@@ -42,9 +47,7 @@ $id=$_SESSION['id'];
     <script src="..\js\jquery-3.7.1.min.js"></script>
 
 
-
-
-    <div class="container-fluid">
+    <div class="container-fluid just">
         <div class="row content">
             <div class="col-sm-2 sidenav mt-5">
                 <form method="POST" id="formFotos">
@@ -129,7 +132,6 @@ $id=$_SESSION['id'];
                             </div>
                         </div>
                     </div>
-
                     <hr class="border-top border-success opacity-25">
                     <div class="text-start my-3">
                         <button id="btnBuscar" class="btn btn-success col me-1" type="button">Buscar</button>
@@ -138,27 +140,18 @@ $id=$_SESSION['id'];
                         <button class="btn btn-primary col me-1" type="button" data-bs-toggle="modal"
                             data-bs-target="#subirFoto">Subir</button>
                     </div>
-
                 </form>
-
             </div>
             <!-- Derecha --------------------------------------------------------------------------->
 
             <!--fotos columna derecha (lsitado en JS) -->
             <div class="container mt-3 col 10">
                 <div class="card text-center" id="header-card">
-
-
                 </div>
-
-
-
-
             </div>
 
         </div>
     </div>
-
 
     <!-- The Modal -->
     <div class="modal" id="subirFoto">
@@ -193,46 +186,13 @@ $id=$_SESSION['id'];
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-
-
-
                 </div>
             </div>
         </div>
 
 
 
-        <!--
-
-<img class="card-img-top" src="../img/icoUpload.png" alt="Card image" >
-
-    <script src="https://kit.fontawesome.com/1b64fd8180.js" crossorigin="anonymous"></script>
-    <a href="#" class="btn btn-danger btn-lg"><i class="fa-solid fa-trash"></i></a>
--->
-
 </html>
-
-
-
-<!--solo para guardar ideas-->
-
-<!--
-<div class="container mt-3">
-    <h2>Suscripciones</h2>
-    <span class="badge rounded-pill bg-primary">Nivel 1</span>
-    <span class="badge rounded-pill bg-secondary">Ninguno</span>
-    <span class="badge rounded-pill bg-success">Nivel 2</span>
-    <span class="badge rounded-pill bg-danger">Nivel 3</span>
-
-
--->
-
-
-
-
-
-
-
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">

@@ -23,7 +23,7 @@
     // Obtener el nombre del mes en español segun el numero
     $mes = $meses_espanol[$numero_mes - 1]; 
 
-    $idUsuario = $_SESSION['id'];
+    $idUsuario = $_SESSION['id']; 
     //--------------------------------------------------------------------------------
 
 
@@ -78,15 +78,5 @@
 
 // FIN SUBIR FOTO ===========================================================================================
     
-
-
-
-
-// INICIO ELIMINAR FOTO ===========================================================================================
-
-//recibir post de id foto al presionar boton elminiar desde JQUERY
-
-// FIN ELIMINAR FOTO ===========================================================================================
-
 
 ?>
