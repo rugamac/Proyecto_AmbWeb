@@ -30,7 +30,7 @@
     <script src="..\js\jquery-3.7.1.min.js"></script>
     <!--SESSION-->
     <div class="text-white justify-content-between" id="headerP">
-
+        <a href="../" class="btn btn-primary my-2 mx-3 px-3">Atras</a>
     </div>
     <!-- listado clientes -->
     <label class="p-5"> </label>
@@ -38,7 +38,6 @@
         <table class="table table-dark table-hover display-6">
             <thead class="table-dark">
                 <tr>
-                    <th scope="col" class="text-success opac">Id</th>
                     <th scope="col" class="text-success">Nombre</th>
                     <th scope="col" class="text-success">Apellido</th>
                     <th scope="col" class="text-success">Suscripcion</th>
@@ -52,7 +51,6 @@
                 if($_SESSION['rol']==='1'){
                     //para admin
                     $sql = conecta()->query("select id_usuario, nombre, primer_apellido, tipo_suscripcion from usuario where id_usuario!=$adminId");
-                
                 }else{
                     //para usuarios
                     $UserId =$_SESSION['id'];
@@ -63,23 +61,36 @@
                     $nombre= $datos->nombre;
                     $apellido= $datos->primer_apellido;
                     $suscripcion= $datos->tipo_suscripcion;
+                    
                      // Verificar el tipo de suscripción y mostrar etiquetas correspondientes
                     if ($suscripcion === 'basico') {
                         $suscripcion = '<span class="badge bg-primary">Básico</span>';
+                        $sus = 'basico';
                     } elseif ($suscripcion === 'plus') {
                         $suscripcion = '<span class="badge badge-plus ">Plus</span>';
+                        $sus = 'plus';
                     } elseif($suscripcion === 'premium') {
                         $suscripcion = '<span class="badge badge-premium">PREMIUM</span>';
+                        $sus = 'premium';
                     }
-                    ?>
+                    //Cambiar el boton de suscripciones dependiendo del rol de la sesion
+                    if($_SESSION['rol']==='1'){
+                        //para admin - abrir modal
+                        $btnSuscripcion = "<button class='btn btn-primary btn-suscripcion' data-bs-toggle='modal' data-bs-target='#adminSuscripcion' data-suscripcion='$sus' data-id='$id_usuario'>Suscripciones</button>";
+                        }else{
+                        //para usuarios
+                        $btnSuscripcion = "<a href='pago.php?id=<?= $id_usuario ?>'
+                class='btn btn-primary'>Suscripciones</a>";
+                }
+                ?>
                 <tr>
-                    <td><?= $id_usuario?></td>
                     <td><?= $nombre ?></td>
                     <td><?= $apellido ?></td>
                     <td><?= $suscripcion ?></td>
                     <td>
-                        <button href="usuario/perfilUsuario.php?id=<?= $datos->id_usuario ?>" class="btn btn-primary"
-                            data-bs-toggle="modal" data-bs-target="#adminSuscripcion">Suscripciones</button>
+                        <?php echo $btnSuscripcion ?>
+                        <!--Boton de suscripcion cambia segun el rol-->
+
                         <!--dropdown dentro de un modal para cambiar suscripcion (admin)
                             vista de tarjetas de suscripcion, que redirige a metodos de pagos (user)-->
                         <button href="usuario/perfilUsuario.php?id=<?= $datos->id_usuario ?>"
@@ -112,22 +123,22 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <p>Cambiar el nivel de suscripcion</p>
-                    <form action="/action_page.php">
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" id="radio1" name="optradio" value="basico"
-                                checked>
+                    <form>
+                        <div class="form-check" id="form-sus">
+                            <input type="radio" class="form-check-input" id="basico" name="sus" value="basico" checked>
                             <h4 class="form-check-label" for="radio1"><span class="badge bg-primary">Basico</span></h4>
                         </div>
                         <div class="form-check my-3">
-                            <input type="radio" class="form-check-input" id="radio2" name="optradio" value="plus">
+                            <input type="radio" class="form-check-input" id="plus" name="sus" value="plus">
                             <h4 class="form-check-label" for="radio2"><span class="badge badge-plus">Plus</span></h4>
                         </div>
                         <div class="form-check">
-                            <input type="radio" class="form-check-input" id="radio3" name="optradio" value="premium">
+                            <input type="radio" class="form-check-input" id="premium" name="sus" value="premium">
                             <h4 class="form-check-label" for="radio3"><span class="badge badge-premium">PREMIUM</span>
                             </h4>
                         </div>
-                        <div class="my-w"><button class="btn btn-success my-2">Guardar</button></div>
+                        <div class="my-w"><button class="btn btn-success my-2" onclick="recargar()">Guardar</button>
+                        </div>
                     </form>
                 </div>
 
@@ -141,8 +152,7 @@
     </div>
 
 
-
-
+    <script src="../js/adminJS.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">

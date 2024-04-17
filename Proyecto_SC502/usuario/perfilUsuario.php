@@ -17,6 +17,7 @@ $sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutin
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -31,31 +32,15 @@ $sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutin
     <link
         href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
+
 </head>
 
 <body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Logo</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="editarDatosUsuario.php?">editar informacion </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../rutinas/rutinas.php?">rutinas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../checkin/check-in.php?">Check-In</a>
-        </li>  
-    </ul>
-  </div>
-</nav>
+
+
     <!-- mostrar datos tecnicos -->
     <?php
+    include '../templates/header.php';
     $datosU = $sqlU -> fetch_object();
     while ($datos = $sql -> fetch_object()) { ?>
 
@@ -125,19 +110,28 @@ $sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutin
 
     <?php }?>
     <!--Boton editar datos-->
-    <div class="mt-4 py-5">
-        <a href="editarDatosUsuario.php?id=<?= $datosU->id_usuario ?>" class="btn btn-outline-success btn-lg">Editar
-            Informacion</a>
-    </div>
-    <div class="mt-4 py-5">
-        <a href="../rutinas/rutinas.php?id=<?= $datosU->id_usuario ?>"
-            class="btn btn-outline-success btn-lg">Rutinas</a>
-    </div>
-    <div class="mt-4 py-5">
-        <a href="../checkin/check-in.php?id=<?= $id ?>"
-            class="btn btn-outline-success btn-lg">Check-In</a>
-    </div>
+    <div class="container mt-3">
+        <div class="mt-4 p-5">
+            <div class="d-flex justify-content-between my-5">
 
+                <div class="mt-4 py-5">
+                    <a href="editarDatosUsuario.php?id=<?= $datosU->id_usuario ?>"
+                        class="btn btn-outline-success btn-lg">Editar
+                        Informacion</a>
+                </div>
+
+                <div class="mt-4 py-5">
+                    <a href="../rutinas/rutinas.php?id=<?= $datosU->id_usuario ?>"
+                        class="btn btn-outline-success btn-lg">Rutinas</a>
+                </div>
+
+                <div class="mt-4 py-5">
+                    <a href="../checkin/check-in.php?id=<?= $id ?>" class="btn btn-outline-success btn-lg">Check-In</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
