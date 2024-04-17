@@ -21,6 +21,7 @@
 </head>
 
 <body>
+<?php include "../templates/header.php";?>
     <script src="..\js\jquery-3.7.1.min.js"></script>
     <div class="card mt-5 m-auto bg-dark align-items-center justify-content-center" style="width:520px; height:600px">
 
@@ -53,7 +54,7 @@
 // footer-
 
 
-include "../include/templates/footer.php";
+include "../templates/footer.php";
 ?>
 </body>
 

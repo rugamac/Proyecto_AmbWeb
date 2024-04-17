@@ -80,8 +80,8 @@
                         $btnPago = "<button class='btn btn-success btn-pago' data-bs-toggle='modal' data-bs-target='#adminPagos' data-id='$id_usuario'>Pago</button>";
                     }else{
                         //para usuarios
-                        $btnSuscripcion = "<a href='#'  class='btn btn-primary'>Suscripciones</a>";
-                        $btnPago = "<a href='#'class='btn btn-success'>Pago</a>";
+                        $btnSuscripcion = "<a href='pago.php'  class='btn btn-primary'>Suscripciones</a>";
+                        $btnPago = "<a href='pago.php'class='btn btn-success'>Pago</a>";
                 }
                 ?>
                 <tr>

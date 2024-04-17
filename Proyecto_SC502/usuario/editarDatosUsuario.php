@@ -28,6 +28,7 @@ $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apel
 
 <body>
     <!--  --->
+    <?php include "../templates/header.php";?>
     <?php
     $datosU = $sqlU -> fetch_object();//para mostrar nombre
     while ($datos = $sql -> fetch_object()) { ?>

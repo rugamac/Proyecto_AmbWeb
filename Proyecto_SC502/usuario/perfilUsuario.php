@@ -63,6 +63,10 @@ $sqlPagos = Conecta()->query("select * from pagos where id_usuario=$id");
                 <span>
                     <h4>CRC <?= $pagos->monto?></h4>
                 </span>
+                <h4 class="text-success">Estado: </h4>
+                <span>
+                    <h4><span class="badge bg-primary"><?= $pagos->estado?></span></h4>
+                </span>
                 <?php } ?>
             </div>
         </div>

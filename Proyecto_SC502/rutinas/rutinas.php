@@ -33,6 +33,7 @@ $sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutin
 </head>
 
 <body>
+<?php include "../templates/header.php";?>
     <script src="..\js\jquery-3.7.1.min.js"></script>
 
 

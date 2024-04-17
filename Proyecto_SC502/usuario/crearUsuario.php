@@ -20,6 +20,7 @@
 </head> 
 
 <body>
+<?php include "../templates/header.php";?>
     <script src="..\js\jquery-3.7.1.min.js"></script>
     <!--- -->
     <div>
@@ -70,5 +71,5 @@
 
 <?php
 // footer
-include "../include/templates/footer.php";
+include "../templates/footer.php";
 ?>

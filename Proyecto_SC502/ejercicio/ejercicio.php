@@ -30,6 +30,7 @@ $sqlE = Conecta()->query("select * from ejercicio where id_rutina=$idRutina");
 </head>
 
 <body>
+<?php include "../templates/header.php";?>
     <script src="..\js\jquery-3.7.1.min.js"></script>
 
 
