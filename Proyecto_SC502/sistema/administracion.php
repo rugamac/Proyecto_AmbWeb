@@ -152,6 +152,50 @@
             </div>
         </div>
     </div>
+    <div class="container">
+  <h1>Selecciona tu suscripción</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header badge-plus text-white">
+          <h2>Suscripción Plus</h2>
+        </div>
+        <div class="card-body">
+          <h3>Beneficios:</h3>
+          <ul>
+            <li>Acceso a rutina personalizada</li>
+            <li>Videos de entrenamiento</li>
+          </ul>
+          <form action="procesar_suscripcion.php" method="post">
+            <input type="hidden" name="tipo_suscripcion" value="plus">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header badge-premium" text-white">
+          <h2>Suscripción Premium</h2>
+        </div>
+        <div class="card-body">
+          <h3>Beneficios:</h3>
+          <ul>
+            <li>2 sesiones de entrenamiento presenciales</li>
+            <li>Servicios de terapia física</li>
+          </ul>
+          <form action="procesar_suscripcion.php" method="post">
+            <input type="hidden" name="tipo_suscripcion" value="premium">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS (si lo necesitas) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-NUiUNB1wlFl0J+JJ2anR1+SwMZPWQ+nLaUvysvRf7C3g7OId+KtXiq+A5yT8+Kq6" crossorigin="anonymous"></script>
+</body>
+</html>
 
     <!---------------------- MODAL ADMIN (cambiar pagos) ---------------------------->
 
