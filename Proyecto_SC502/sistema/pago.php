@@ -58,69 +58,34 @@
         <h3 class="text-center text-white">Contactar con la entrenadora para confirmar pago y active la suscripcion</h3>
     </div>
 
-    <!-- Modal -->
-    <div id="paymentModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel"
+    <!--Modal -->
+    <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="paymentModalLabel">Payment Details</h5>
+                    <h5 class="modal-title" id="paymentModalLabel">Transferencia</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="paymentForm">
-                        <div class="form-group">
-                            <label for="cardNumber">Número de Tarjeta</label>
-                            <input type="text" class="form-control" id="cardNumber" placeholder="Enter card number"
-                                required>
-                        </div>
-                        <div class="form-group">
-                            <label for="expiry">Fecha de Vencimiento</label>
-                            <input type="text" class="form-control" id="expiry" placeholder="MM/YY" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="cvv">CVV</label>
-                            <input type="text" class="form-control" id="cvv" placeholder="CVV" required>
-                        </div>
-                    </form>
+                    <p>El número de cuanta IBAN para la transaferencia el el siguiente: <strong>###############</strong></p>
+                    <p>Para confirmar su compra de suscripción y para contactar con la entrenadora, puede
+                        llamar al número: <strong>########</strong></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
-                    <button type="button" class="btn btn-primary" id="payButton">Realizar Pago</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- Bootstrap JS and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script>
-    $(document).ready(function() {
-        $('#sinpeButton').popover();
-        $("#payButton").click(function() {
-            // Aquí podrías agregar la lógica para procesar el pago
-            // Puedes obtener los valores de los campos de entrada usando jQuery o JavaScript vanilla
-            var cardNumber = $("#cardNumber").val();
-            var expiry = $("#expiry").val();
-            var cvv = $("#cvv").val();
-            if (!cardNumber || !expiry || !cvv) {
-                alert("Por favor complete los campos para relizar el pago!");
-                return;
-            }
-            // Aquí deberías hacer la validación de la tarjeta y el proceso de pago
-            // Por simplicidad, aquí simplemente mostramos una alerta
-            alert(
-                "Pago procesado exitosamente. Se ha enviado una nota de confirmación a su correo electrónico."
-                );
-            // Cierra el modal después del pago
-            $("#paymentModal").modal('hide');
-        });
-    });
-    </script>
     <!-- SINPE Modal -->
     <div class="modal fade" id="sinpeModal" tabindex="-1" role="dialog" aria-labelledby="sinpeModalLabel"
         aria-hidden="true">
