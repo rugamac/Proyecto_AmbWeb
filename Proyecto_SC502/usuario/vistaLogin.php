@@ -21,9 +21,9 @@
 </head>
 
 <body>
-<?php include "../templates/header.php";?>
+    <?php include "../templates/header.php";?>
     <script src="..\js\jquery-3.7.1.min.js"></script>
-    <div class="card mt-5 m-auto bg-dark align-items-center justify-content-center" style="width:520px; height:600px">
+    <div class="card mt-5 m-auto bg-dark align-items-center justify-content-center animation" style="width:520px; height:600px">
 
         <form method="POST" id="formLogin" action="">
             <h1 class="text-success text-center mb-5 pb-2">Iniciar Sesión</h1>
@@ -44,7 +44,9 @@
         </form>
         <div id="carga"></div>
     </div>
-
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {});
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>

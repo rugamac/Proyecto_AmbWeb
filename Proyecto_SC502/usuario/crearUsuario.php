@@ -24,7 +24,7 @@
     <script src="..\js\jquery-3.7.1.min.js"></script>
     <!--- -->
     <div>
-        <div class="card mt-5 m-auto bg-dark align-items-center justify-content-center"
+        <div class="card mt-5 m-auto bg-dark align-items-center justify-content-center animation"
             style="width:520px; height:700px">
 
             <div class=" col-lg-6 m-auto">
@@ -60,7 +60,9 @@
         </div>
     </div><br>
 
-
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {});
+    </script>
     <script src="../js/loginJS.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">

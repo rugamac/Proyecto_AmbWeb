@@ -45,7 +45,7 @@ include "../DAL/conexion.php";
 
     </div>
     <div class="container mt-3 container-fluid m-auto">
-        <div class="mt-4 p-5 bg-dark">
+        <div class="mt-4 p-5 bg-dark animation">
             <form method="POST" id="postInsertDetalles">
                 <div class="row justify-content-center m-auto">
                     <!-- columna -->
@@ -57,12 +57,12 @@ include "../DAL/conexion.php";
 
                     <div class="col-sm-5 mb-5">
                         <h3 class=" text-success">Peso: </h3>
-                        <input type="text" class="form-control" name="peso" >
+                        <input type="text" class="form-control" name="peso">
                     </div>
 
                     <div class="col-sm-5 mb-5">
                         <h3 class=" text-success">Lesiones: </h3>
-                        <input type="text" class="form-control" name="lesiones" >
+                        <input type="text" class="form-control" name="lesiones">
                     </div>
 
                     <div class="col-sm-5 mb-5">
@@ -76,12 +76,12 @@ include "../DAL/conexion.php";
 
                     <div class="col-sm-5 mb-5">
                         <h3 class=" text-success">Embarazo: </h3>
-                        <input type="text" class="form-control" name="embarazo" >
+                        <input type="text" class="form-control" name="embarazo">
                     </div>
 
                     <div class="col-sm-5 mb-5">
                         <h3 class=" text-success">Cirugia: </h3>
-                        <input type="text" class="form-control" name="cirugia" >
+                        <input type="text" class="form-control" name="cirugia">
                     </div>
 
                     <div class="col-sm-5 mb-5">
@@ -91,13 +91,14 @@ include "../DAL/conexion.php";
 
                     <div class="col-sm-5 mb-5">
                         <h3 class=" text-success">Fecha nacimiento: </h3>
-                        <input type="date" class="form-control" name="edad" >
+                        <input type="date" class="form-control" name="edad">
                     </div>
 
                 </div>
 
                 <div class="text-center mt-3"><br>
-                    <button class="btn btn-success py-2 px-4 btn-lg" name="btnAgregarDatos" value="ok" href="../index.php">Guardar</button>
+                    <button class="btn btn-success py-2 px-4 btn-lg" name="btnAgregarDatos" value="ok"
+                        href="../index.php">Guardar</button>
                 </div>
             </form>
             <?php //
@@ -107,6 +108,9 @@ include "../DAL/conexion.php";
         ?>
         </div>
     </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {});
+    </script>
     <script src="../js/loginJS.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">

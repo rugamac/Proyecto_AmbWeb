@@ -35,7 +35,7 @@
     <!-- listado clientes -->
     <label class="p-5"> </label>
     <div class="container-sm">
-        <table class="table table-dark table-hover display-6">
+        <table class="table table-dark table-hover display-6 animation">
             <thead class="table-dark">
                 <tr>
                     <th scope="col" class="text-success">Nombre</th>
@@ -112,7 +112,7 @@
 
     <!---------------------- MODAL ADMIN (cambiar suscripcion) ---------------------------->
 
-    <div class="modal fade" id="adminSuscripcion">
+    <div class="modal fade animation" id="adminSuscripcion">
         <div class="modal-dialog">
             <div class="modal-content">
 
@@ -152,15 +152,15 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container animation">
         <h1>Selecciona tu suscripción</h1>
         <div class="row">
 
-            <div class="col-md-6">
+            <div class="col-md-6 animation">
                 <div class="card mb-4">
                     <div class="card-header badge-plus text-white">
-                    <a href="pago.php" class="text-decoration-none text-white">
-                        <h2>Suscripción Plus</h2>
+                        <a href="pago.php" class="text-decoration-none text-white">
+                            <h2>Suscripción Plus</h2>
                     </div>
                     <div class="card-body">
                         <h3>Beneficios:</h3>
@@ -176,7 +176,7 @@
             </div>
 
 
-            <div class="col-md-6">
+            <div class="col-md-6 animation">
                 <div class="card mb-4">
                     <div class="card-header badge-premium" text-white>
                         <a href="pago.php" class="text-decoration-none text-white">
@@ -209,7 +209,7 @@
 
 <!---------------------- MODAL ADMIN (cambiar pagos) ---------------------------->
 
-<div class="modal fade" id="adminPagos">
+<div class="modal fade animation" id="adminPagos">
     <div class="modal-dialog">
         <div class="modal-content">
 
@@ -250,7 +250,9 @@
 </div>
 
 
-
+<script>
+document.addEventListener("DOMContentLoaded", function() {});
+</script>
 <script src="../js/adminJS.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

@@ -80,3 +80,18 @@
 .badge-plus{
     background-color: #00b7ff;
 }
+
+@keyframes slideIn {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animation {
+    animation: slideIn 0.4s ease-out;
+  }

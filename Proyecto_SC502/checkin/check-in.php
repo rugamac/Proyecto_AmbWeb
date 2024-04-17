@@ -145,7 +145,7 @@ if($rol==2){//para usuario
 
             <!--fotos columna derecha (lsitado en JS) -->
             <div class="container mt-3 col 10">
-                <div class="card text-center" id="header-card">
+                <div class="card text-center animation" id="header-card">
                 </div>
             </div>
 
@@ -154,7 +154,7 @@ if($rol==2){//para usuario
 
     <!-- The Modal -->
     <div class="modal" id="subirFoto">
-        <div class="modal-dialog mb-5">
+        <div class="modal-dialog mb-5 animation">
             <div class="modal-content mb-5">
 
                 <!-- Modal Header -->
