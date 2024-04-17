@@ -11,6 +11,7 @@ include "../DAL/conexion.php";
 $sql=conecta()->query("select * from detalles_usuario where id_usuario=$id");
 $sqlU=conecta()->query("select id_usuario, nombre, primer_apellido, segundo_apellido from usuario where id_usuario=$id");
 $sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutina where id_usuario=$id");
+$sqlPagos = Conecta()->query("select * from pagos where id_usuario=$id");
 ?>
 
 <!DOCTYPE html>
@@ -42,13 +43,30 @@ $sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutin
     <?php
     include '../templates/header.php';
     $datosU = $sqlU -> fetch_object();
+    $pagos = $sqlPagos -> fetch_object();
+
     while ($datos = $sql -> fetch_object()) { ?>
 
     <div class="container mt-3">
         <div class="mt-4 p-5 bg-dark text-white">
             <h1 class="text-center text-success">
                 <?= $datosU->nombre . " " . $datosU->primer_apellido . " " . $datosU->segundo_apellido?></h1><br>
+            <hr class="border-top border-success opacity-25 my-2">
+            <div class="text-center">
+                <!--si aun no existe la inf consultada, ocultarlo-->
+            <?php if ($pagos && isset($pagos->dia_pago) && isset($pagos->monto)) { ?>
+                <h4 class="text-success">Dia de Pago:</h4>
+                <span>
+                    <h4><?= $pagos->dia_pago?> de cada mes</h4>
+                </span>
+                <h4 class="text-success">Monto: </h4>
+                <span>
+                    <h4>CRC <?= $pagos->monto?></h4>
+                </span>
+                <?php } ?>
+            </div>
         </div>
+
     </div>
     <div class="container mt-2 container-fluid">
         <div class="mt-4 p-5 bg-dark">
@@ -128,7 +146,7 @@ $sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutin
                 <div class="mt-4 py-5">
                     <a href="../checkin/check-in.php?id=<?= $id ?>" class="btn btn-outline-success btn-lg">Check-In</a>
                 </div>
-                
+
             </div>
         </div>
     </div>

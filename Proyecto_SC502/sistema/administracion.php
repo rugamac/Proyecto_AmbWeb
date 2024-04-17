@@ -73,14 +73,15 @@
                         $suscripcion = '<span class="badge badge-premium">PREMIUM</span>';
                         $sus = 'premium';
                     }
-                    //Cambiar el boton de suscripciones dependiendo del rol de la sesion
+                    //Cambiar el boton de suscripciones y pago dependiendo del rol de la sesion
                     if($_SESSION['rol']==='1'){
                         //para admin - abrir modal
                         $btnSuscripcion = "<button class='btn btn-primary btn-suscripcion' data-bs-toggle='modal' data-bs-target='#adminSuscripcion' data-suscripcion='$sus' data-id='$id_usuario'>Suscripciones</button>";
-                        }else{
+                        $btnPago = "<button class='btn btn-success btn-pago' data-bs-toggle='modal' data-bs-target='#adminPagos' data-id='$id_usuario'>Pago</button>";
+                    }else{
                         //para usuarios
-                        $btnSuscripcion = "<a href='pago.php?id=<?= $id_usuario ?>'
-                class='btn btn-primary'>Suscripciones</a>";
+                        $btnSuscripcion = "<a href='#'  class='btn btn-primary'>Suscripciones</a>";
+                        $btnPago = "<a href='#'class='btn btn-success'>Pago</a>";
                 }
                 ?>
                 <tr>
@@ -93,8 +94,9 @@
 
                         <!--dropdown dentro de un modal para cambiar suscripcion (admin)
                             vista de tarjetas de suscripcion, que redirige a metodos de pagos (user)-->
-                        <button href="usuario/perfilUsuario.php?id=<?= $datos->id_usuario ?>"
-                            class="btn btn-success">Pago</button>
+
+
+                        <?php echo $btnPago ?>
                         <!--cambiar fecha de pago con input string, dia del mes con modal.(boton editar solo lo ve admin)
                             el usuario ve estos datos en la vista de perfil usuario-->
                     </td>
@@ -150,6 +152,49 @@
             </div>
         </div>
     </div>
+
+    <!---------------------- MODAL ADMIN (cambiar pagos) ---------------------------->
+
+    <div class="modal fade" id="adminPagos">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Gestionar Pagos</h4>
+                    <button type="btn btn-danger" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form id="formAddPago">
+                        <div class="col-5 mb-4">
+                            <span>Monto: </span>
+                            <input id="monto" type="number" class="form-control" placeholder="CRC" step="0.01"></input>
+                        </div>
+                        <div class="col-5 mb-4">
+                            <span>Día: </span>
+                            <input id="dia" type="number" class="form-control" placeholder="Dia  del  mes"></input>
+                        </div>
+
+                        <div class="col-5 mb-4">
+                            <span>Estado: </span>
+                            <input id="estado" type="text" class="form-control" placeholder="Activo  o  Congelado"></input>
+                        </div>
+                        <hr class="border-top border-success opacity-25 my-2">
+
+                            <button type="submit" class="btn btn-success my-2">Guardar</button>
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <script src="../js/adminJS.js"></script>

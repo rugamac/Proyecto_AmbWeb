@@ -86,6 +86,7 @@ CREATE TABLE fotos (
     PRIMARY KEY(id_foto),
     foreign key(id_usuario) references usuario(id_usuario) 
 );
+
 --Crear la tabla fecha pago
 CREATE TABLE administracion (
     id_cliente INT AUTO_INCREMENT PRIMARY KEY,
@@ -93,4 +94,13 @@ CREATE TABLE administracion (
     monto DECIMAL(10, 2),
     id_usuario INT,
     foreign key(id_usuario) references usuario(id_usuario) 
+);
+
+CREATE TABLE pagos(
+    id_pago INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    monto NUMERIC(10),
+    dia_pago varchar(20),
+    estado varchar(20),
+    id_usuario INT,
+    foreign key(id_usuario) references usuario(id_usuario)
 );

@@ -29,10 +29,10 @@
             <?php 
             include "login.php";
             ?>
-            <p>Correo Electronico:</p>
+            <span>Correo Electronico:</span>
             <input type="email" name="correo" class="form-control mb-4" placeholder="******@correo.com" />
 
-            <p>Constraseña:</p>
+            <span>Constraseña:</span>
             <input type="password" name="password" class="form-control mb-4 " placeholder="********" />
 
             <div class="text-center mt-5"><br>
