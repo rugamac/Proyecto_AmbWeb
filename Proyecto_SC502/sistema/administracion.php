@@ -150,6 +150,30 @@
             </div>
         </div>
     </div>
+    <!-- Modal body -->
+<div class="modal-body">
+    <p>Tipo de suscripciónes:</p>
+    <form action="/cambiar_suscripcion.php" method="POST">
+        <div>
+            <label class="form-check-label" for="radio1">
+                <h4>Suscripción Plus</h4>
+                <ul>
+                    <li>Acceso a rutina personalizada</li>
+                    <li>Videos de entrenamiento</li>
+                </ul>
+            </label>
+        </div>
+        <div>
+            <label class="form-check-label" for="radio2">
+                <h4>Suscripción Premium</h4>
+                <ul>
+                    <li>2 sesiones de entrenamiento presenciales</li>
+                    <li>Servicios de terapia física</li>
+                </ul>
+            </label>
+        </div>
+    </form>
+</div>
 
 
     <script src="../js/adminJS.js"></script>
