@@ -14,11 +14,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -27,11 +27,10 @@
 </head>
 
 <body>
+    <script src="..\js\jquery-3.7.1.min.js"></script>
     <!--SESSION-->
     <div class="text-white justify-content-between" id="headerP">
 
-        <h3 class="col-6 mt-2 mx-3"><?php echo $_SESSION["usuario"];?></h3>
-        <a href="usuario/cerrarSesion.php" class="btn btn-primary my-2 mx-3 px-3"><i class="fa-solid fa-right-from-bracket"></i></a>
     </div>
     <!-- listado clientes -->
     <label class="p-5"> </label>
@@ -48,7 +47,7 @@
             </thead>
             <tbody>
                 <?php
-                include "DAL/conexion.php";
+                include "../DAL/conexion.php";
                     $adminId=$_SESSION['id'];
                 if($_SESSION['rol']==='1'){
                     //para admin
@@ -64,7 +63,7 @@
                     $nombre= $datos->nombre;
                     $apellido= $datos->primer_apellido;
                     $suscripcion= $datos->tipo_suscripcion;
-                     // Verificar el tipo de suscripción y mostrar etiquetas correspondientes-
+                     // Verificar el tipo de suscripción y mostrar etiquetas correspondientes
                     if ($suscripcion === 'basico') {
                         $suscripcion = '<span class="badge bg-primary">Básico</span>';
                     } elseif ($suscripcion === 'plus') {
@@ -79,10 +78,14 @@
                     <td><?= $apellido ?></td>
                     <td><?= $suscripcion ?></td>
                     <td>
-                        <a href="usuario/perfilUsuario.php?id=<?= $datos->id_usuario ?>" class="btn btn-success"><i
-                                class="fa-solid fa-dumbbell ms-2 me-3"></i>Perfil</a>
-                        <a href="sistema/administracion.php?id=<?= $datos->id_usuario ?>" class="btn btn-warning"><i
-                                class="fa-solid fa-desktop ms-2 me-3"></i>Sistema</a>
+                        <button href="usuario/perfilUsuario.php?id=<?= $datos->id_usuario ?>" class="btn btn-primary"
+                            data-bs-toggle="modal" data-bs-target="#adminSuscripcion">Suscripciones</button>
+                        <!--dropdown dentro de un modal para cambiar suscripcion (admin)
+                            vista de tarjetas de suscripcion, que redirige a metodos de pagos (user)-->
+                        <button href="usuario/perfilUsuario.php?id=<?= $datos->id_usuario ?>"
+                            class="btn btn-success">Pago</button>
+                        <!--cambiar fecha de pago con input string, dia del mes con modal.(boton editar solo lo ve admin)
+                            el usuario ve estos datos en la vista de perfil usuario-->
                     </td>
                 </tr>
                 <?php }
@@ -94,6 +97,52 @@
     </div>
 
 
+    <!---------------------- MODAL ADMIN (cambiar suscripcion) ---------------------------->
+
+    <div class="modal fade" id="adminSuscripcion">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Gestionar de suscripciones</h4>
+                    <button type="btn btn-danger" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p>Cambiar el nivel de suscripcion</p>
+                    <form action="/action_page.php">
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="radio1" name="optradio" value="basico"
+                                checked>
+                            <h4 class="form-check-label" for="radio1"><span class="badge bg-primary">Basico</span></h4>
+                        </div>
+                        <div class="form-check my-3">
+                            <input type="radio" class="form-check-input" id="radio2" name="optradio" value="plus">
+                            <h4 class="form-check-label" for="radio2"><span class="badge badge-plus">Plus</span></h4>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="radio3" name="optradio" value="premium">
+                            <h4 class="form-check-label" for="radio3"><span class="badge badge-premium">PREMIUM</span>
+                            </h4>
+                        </div>
+                        <div class="my-w"><button class="btn btn-success my-2">Guardar</button></div>
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
@@ -101,7 +150,7 @@
 
     <?php
 // footer
-include "templates/footer.php";
+include "../templates/footer.php";
 ?>
 </body>
 

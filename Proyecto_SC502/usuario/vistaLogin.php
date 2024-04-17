@@ -50,7 +50,7 @@
 
 
     <?php
-// footer
+// footer-
 
 
 include "../include/templates/footer.php";

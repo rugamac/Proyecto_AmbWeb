@@ -21,7 +21,7 @@
 
 <body>
     <script src="..\js\jquery-3.7.1.min.js"></script>
-    <!-- -->
+    <!--- -->
     <div>
         <div class="card mt-5 m-auto bg-dark align-items-center justify-content-center"
             style="width:520px; height:700px">

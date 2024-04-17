@@ -34,7 +34,7 @@ include "../DAL/conexion.php";
 <body>
     <script src="..\js\jquery-3.7.1.min.js"></script>
     <!--  -->
-    <!-- //recorrer todos los datos de la tabla. -->
+    <!-- //recorrer todos los datos de la tabla. --->
 
     <div class="container mt-3">
         <div class="mt-4 p-5 bg-dark text-white">

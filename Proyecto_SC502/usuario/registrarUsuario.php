@@ -11,7 +11,7 @@ if(isset($_POST["correo"])){
         $segundoApellido=recogePost("apellido2");
         $correo=recogePost("correo");
         $password=recogePost("password");
-        $password = md5($password); //encriptar contrasena
+        $password = md5($password); //encriptar contrasena-
 
 
         //verifica si el correo ya se registro para evitar duplicados
@@ -24,7 +24,7 @@ if(isset($_POST["correo"])){
 
         //intertar en la BD ----------
         $sql=Conecta()->query("insert into usuario (nombre, primer_apellido, segundo_apellido, correo, tipo_suscripcion, id_rol, PASSWORD)
-        values ('$nombre', '$primerApellido', '$segundoApellido', '$correo', 'ninguno', 2, '$password');");
+        values ('$nombre', '$primerApellido', '$segundoApellido', '$correo', 'basico', 2, '$password');");
 
         if($sql==1){//alertas de insert.
             echo 'Usuario registrado';

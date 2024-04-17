@@ -71,3 +71,12 @@
     cursor:pointer;
     
 }
+
+/*estilo de etiquetas suscripcion*/
+.badge-premium{
+    background-color: #952bdb;
+}
+
+.badge-plus{
+    background-color: #00b7ff;
+}

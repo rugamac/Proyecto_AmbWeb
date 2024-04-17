@@ -15,7 +15,7 @@
      
             $validacion = Conecta()->query("SELECT * FROM usuario WHERE correo = '$correo' AND PASSWORD = '$password'");
 
-            if($datos = $validacion->fetch_object()) {//si se encuentra un resultado
+            if($datos = $validacion->fetch_object()) {//si se encuentra un resultado-
                 
                 $_SESSION['usuario']=$datos->correo;//extrae el correo
                 $_SESSION['id']=$datos->id_usuario;//extrae el id del usuario autenticado
