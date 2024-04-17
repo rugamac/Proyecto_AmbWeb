@@ -153,101 +153,111 @@
         </div>
     </div>
     <div class="container">
-  <h1>Selecciona tu suscripción</h1>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="card mb-4">
-        <div class="card-header badge-plus text-white">
-          <h2>Suscripción Plus</h2>
-        </div>
-        <div class="card-body">
-          <h3>Beneficios:</h3>
-          <ul>
-            <li>Acceso a rutina personalizada</li>
-            <li>Videos de entrenamiento</li>
-          </ul>
-          <form action="procesar_suscripcion.php" method="post">
-            <input type="hidden" name="tipo_suscripcion" value="plus">
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card mb-4">
-        <div class="card-header badge-premium" text-white">
-          <h2>Suscripción Premium</h2>
-        </div>
-        <div class="card-body">
-          <h3>Beneficios:</h3>
-          <ul>
-            <li>2 sesiones de entrenamiento presenciales</li>
-            <li>Servicios de terapia física</li>
-          </ul>
-          <form action="procesar_suscripcion.php" method="post">
-            <input type="hidden" name="tipo_suscripcion" value="premium">
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+        <h1>Selecciona tu suscripción</h1>
+        <div class="row">
 
-<!-- Bootstrap JS (si lo necesitas) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-NUiUNB1wlFl0J+JJ2anR1+SwMZPWQ+nLaUvysvRf7C3g7OId+KtXiq+A5yT8+Kq6" crossorigin="anonymous"></script>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header badge-plus text-white">
+                    <a href="pago.php" class="text-decoration-none text-white">
+                        <h2>Suscripción Plus</h2>
+                    </div>
+                    <div class="card-body">
+                        <h3>Beneficios:</h3>
+                        <ul>
+                            <li>Acceso a rutina personalizada</li>
+                            <li>Videos de entrenamiento</li>
+                        </ul>
+                        <form action="procesar_suscripcion.php" method="post">
+                            <input type="hidden" name="tipo_suscripcion" value="plus">
+                        </form>
+                    </div></a>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header badge-premium" text-white>
+                        <a href="pago.php" class="text-decoration-none text-white">
+                            <h2>Suscripción Premium</h2>
+                    </div>
+                    <div class="card-body">
+                        <h3>Beneficios:</h3>
+                        <ul>
+                            <li>2 sesiones de entrenamiento presenciales</li>
+                            <li>Servicios de terapia física</li>
+                        </ul>
+                        <form action="procesar_suscripcion.php" method="post">
+                            <input type="hidden" name="tipo_suscripcion" value="premium">
+                        </form>
+                    </div></a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (si lo necesitas) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-NUiUNB1wlFl0J+JJ2anR1+SwMZPWQ+nLaUvysvRf7C3g7OId+KtXiq+A5yT8+Kq6" crossorigin="anonymous">
+    </script>
 </body>
+
 </html>
 
-    <!---------------------- MODAL ADMIN (cambiar pagos) ---------------------------->
+<!---------------------- MODAL ADMIN (cambiar pagos) ---------------------------->
 
-    <div class="modal fade" id="adminPagos">
-        <div class="modal-dialog">
-            <div class="modal-content">
+<div class="modal fade" id="adminPagos">
+    <div class="modal-dialog">
+        <div class="modal-content">
 
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Gestionar Pagos</h4>
-                    <button type="btn btn-danger" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Gestionar Pagos</h4>
+                <button type="btn btn-danger" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
 
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <form id="formAddPago">
-                        <div class="col-5 mb-4">
-                            <span>Monto: </span>
-                            <input id="monto" type="number" class="form-control" placeholder="CRC" step="0.01"></input>
-                        </div>
-                        <div class="col-5 mb-4">
-                            <span>Día: </span>
-                            <input id="dia" type="number" class="form-control" placeholder="Dia  del  mes"></input>
-                        </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form id="formAddPago">
+                    <div class="col-5 mb-4">
+                        <span>Monto: </span>
+                        <input id="monto" type="number" class="form-control" placeholder="CRC" step="0.01"></input>
+                    </div>
+                    <div class="col-5 mb-4">
+                        <span>Día: </span>
+                        <input id="dia" type="number" class="form-control" placeholder="Dia  del  mes"></input>
+                    </div>
 
-                        <div class="col-5 mb-4">
-                            <span>Estado: </span>
-                            <input id="estado" type="text" class="form-control" placeholder="Activo  o  Congelado"></input>
-                        </div>
-                        <hr class="border-top border-success opacity-25 my-2">
+                    <div class="col-5 mb-4">
+                        <span>Estado: </span>
+                        <input id="estado" type="text" class="form-control" placeholder="Activo  o  Congelado"></input>
+                    </div>
+                    <hr class="border-top border-success opacity-25 my-2">
 
-                            <button type="submit" class="btn btn-success my-2">Guardar</button>
-                    </form>
-                </div>
+                    <button type="submit" class="btn btn-success my-2">Guardar</button>
+                </form>
+            </div>
 
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
+</div>
 
 
 
-    <script src="../js/adminJS.js"></script>
+<script src="../js/adminJS.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+</script>
 
-    <?php
+<?php
 // footer
 include "../templates/footer.php";
 ?>

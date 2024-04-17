@@ -11,39 +11,39 @@
 </head>
 
 <body>
-
+    
     <div class="d-flex justify-content-between m-5">
-        <div class="card border-0 bg-white" style="width:400px">
-            <a href="#paymentModal" data-toggle="modal">
+        <div class="card border-0 bg-white" style="width:400px" >
+            <a href="#paymentModal" data-toggle="modal" class="text-decoration-none text-primary">
                 <img class="card-img-top"
                     src="https://grupokankun.com/wp-content/uploads/2020/02/primera-tarjeta-de-cre%CC%81dito.jpg"
                     alt="Card image" style="width:100%">
                 <div class="card-body text-center">
-                    <div class="bg-dark text-center display-6">Transferencia</div>
+                    <div class="text-center display-6">Transferencia</div>
                 </div>
             </a>
         </div>
         <br>
 
         <div class="card border-0 bg-white" style="width:400px">
-            <a href="https://www.paypal.com/cr/webapps/mpp/payment-method" target="_blank">
+            <a href="https://www.paypal.com/cr/webapps/mpp/payment-method" target="_blank" class="text-decoration-none text-primary">
                 <img class="card-img-top"
                     src="https://pics.paypal.com/00/s/NjQwYjhjNTktNDFhZi00OGRkLWI2MzgtMmMxZmE3OTY5YzU0/file.PNG"
                     alt="Card image" style="width:100%">
                 <div class="card-body text-center">
-                    <div class="bg-dark text-center display-6">Pagar con PayPal</div>
+                    <div class=" text-center display-6">Pagar con PayPal</div>
                 </div>
             </a>
         </div>
         <br>
 
         <div class="card border-0 bg-white" style="width:400px">
-            <a href="#" id="sinpeLink" data-toggle="modal" data-target="#sinpeModal">
+            <a href="#" id="sinpeLink" data-toggle="modal" data-target="#sinpeModal" class="text-decoration-none text-primary">
                 <img class="card-img-top"
                     src="https://play-lh.googleusercontent.com/QweCEZ_R81jSZMwQlBvX6ldqiNOZbJudyzJ6HcMOPuNt0XsjmRcXyJVWA6R7lv3RV9o"
                     alt="Card image" style="width:100%">
                 <div class="card-body text-center">
-                    <div class="bg-dark text-center display-6">SINPE</div>
+                    <div class="text-center display-6">SINPE</div>
                 </div>
             </a>
         </div>
