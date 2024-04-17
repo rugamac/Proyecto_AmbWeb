@@ -29,7 +29,7 @@ $(document).on('click', '#btnBuscar', function ListadoFotos() {
         let plantilla = '';
         img.forEach(img => {
           plantilla += `
-          <div class="card-header">
+          <div class="card-header animation">
                           <h2 class="text-success">${img.mes} del ${img.anno}</h2>
                           <hr class="border-top border-success opacity-50">
                           <h5>Nota:</h5>
@@ -41,10 +41,10 @@ $(document).on('click', '#btnBuscar', function ListadoFotos() {
                           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
                               <div class="col m-auto">
                                 <div class="card img-fluid border-0">
-                                  <img src="${img.ruta}" class="rounded img-fluid m-1 card-img-top" >
+                                  <img src="${img.ruta}" class="rounded img-fluid m-1 card-img-top animation" >
                                       <div class="card-img-overlay ">
                                         <button id="btnBorrarFoto" 
-                                        class="btn btn-danger btn-sm justify-content-around"><i class="fa-solid fa-trash"></i></button>
+                                        class="btn btn-danger btn-sm justify-content-around animation"><i class="fa-solid fa-trash"></i></button>
                                       </div>
                                 </div>
                               </div>

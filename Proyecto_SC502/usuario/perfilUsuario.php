@@ -47,14 +47,14 @@ $sqlPagos = Conecta()->query("select * from pagos where id_usuario=$id");
 
     while ($datos = $sql -> fetch_object()) { ?>
 
-    <div class="container mt-3">
+    <div class="container mt-3 animation">
         <div class="mt-4 p-5 bg-dark text-white">
             <h1 class="text-center text-success">
                 <?= $datosU->nombre . " " . $datosU->primer_apellido . " " . $datosU->segundo_apellido?></h1><br>
             <hr class="border-top border-success opacity-25 my-2">
             <div class="text-center">
                 <!--si aun no existe la inf consultada, ocultarlo-->
-            <?php if ($pagos && isset($pagos->dia_pago) && isset($pagos->monto)) { ?>
+                <?php if ($pagos && isset($pagos->dia_pago) && isset($pagos->monto)) { ?>
                 <h4 class="text-success">Dia de Pago:</h4>
                 <span>
                     <h4><?= $pagos->dia_pago?> de cada mes</h4>
@@ -72,7 +72,7 @@ $sqlPagos = Conecta()->query("select * from pagos where id_usuario=$id");
         </div>
 
     </div>
-    <div class="container mt-2 container-fluid">
+    <div class="container mt-2 container-fluid animation">
         <div class="mt-4 p-5 bg-dark">
             <div class="row justify-content-center">
                 <!-- columna -->
@@ -154,6 +154,9 @@ $sqlPagos = Conecta()->query("select * from pagos where id_usuario=$id");
             </div>
         </div>
     </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {});
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>

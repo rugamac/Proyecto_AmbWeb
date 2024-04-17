@@ -31,12 +31,13 @@
     <div class="text-white justify-content-between" id="headerP">
 
         <h3 class="col-6 mt-2 mx-3"><?php echo $_SESSION["usuario"];?></h3>
-        <a href="usuario/cerrarSesion.php" class="btn btn-primary my-2 mx-3 px-3"><i class="fa-solid fa-right-from-bracket"></i></a>
+        <a href="usuario/cerrarSesion.php" class="btn btn-primary my-2 mx-3 px-3"><i
+                class="fa-solid fa-right-from-bracket"></i></a>
     </div>
     <!-- listado clientes -->
     <label class="p-5"> </label>
     <div class="container-sm">
-        <table class="table table-dark table-hover display-6">
+        <table class="table table-dark table-hover display-6 animation">
             <thead class="table-dark">
                 <tr>
                     <th scope="col" class="text-success opac">Id</th>
@@ -94,7 +95,9 @@
     </div>
 
 
-
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {});
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
