@@ -155,7 +155,7 @@
   <div class="row">
     <div class="col-md-6">
       <div class="card mb-4">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header badge-plus text-white">
           <h2>Suscripción Plus</h2>
         </div>
         <div class="card-body">
@@ -172,7 +172,7 @@
     </div>
     <div class="col-md-6">
       <div class="card mb-4">
-        <div class="card-header bg-success text-white">
+        <div class="card-header badge-premium" text-white">
           <h2>Suscripción Premium</h2>
         </div>
         <div class="card-body">
