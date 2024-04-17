@@ -64,12 +64,12 @@
                 <div class="modal-body">
                     <form id="paymentForm">
                         <div class="form-group">
-                            <label for="cardNumber">Card Number</label>
+                            <label for="cardNumber">Número de Tarjeta</label>
                             <input type="text" class="form-control" id="cardNumber" placeholder="Enter card number"
                                 required>
                         </div>
                         <div class="form-group">
-                            <label for="expiry">Expiry Date</label>
+                            <label for="expiry">Fecha de Vencimiento</label>
                             <input type="text" class="form-control" id="expiry" placeholder="MM/YY" required>
                         </div>
                         <div class="form-group">
@@ -99,9 +99,13 @@
                 var cardNumber = $("#cardNumber").val();
                 var expiry = $("#expiry").val();
                 var cvv = $("#cvv").val();
+                if (!cardNumber || !expiry || !cvv) {
+                    alert("Por favor complete los campos para relizar el pago!");
+                    return;
+                }
                 // Aquí deberías hacer la validación de la tarjeta y el proceso de pago
                 // Por simplicidad, aquí simplemente mostramos una alerta
-                alert("Payment processed successfully!");
+                alert("Pago procesado exitosamente. Se ha enviado una nota de confirmación a su correo electrónico.");
                 // Cierra el modal después del pago
                 $("#paymentModal").modal('hide');
             });
@@ -119,7 +123,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>El número SINPE para realizar la transferencia es: <strong>8888-8888</strong></p>
+                    <p>El número SINPE para realizar la transferencia es: <strong>########</strong></p>
+                    <p>Para confirmar su compra de suscripción y para contactar con la entrenadora, puede llamar al número: <strong>########</strong></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
