@@ -31,10 +31,29 @@ $sqlR = Conecta()->query("select id_rutina, nombre_rutina, dia_rutina from rutin
     <link
         href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
-
 </head>
 
 <body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Logo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="editarDatosUsuario.php?">editar informacion </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../rutinas/rutinas.php?">rutinas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../checkin/check-in.php?">Check-In</a>
+        </li>  
+    </ul>
+  </div>
+</nav>
     <!-- mostrar datos tecnicos -->
     <?php
     $datosU = $sqlU -> fetch_object();

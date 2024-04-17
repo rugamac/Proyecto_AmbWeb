@@ -26,7 +26,7 @@ create table usuario
 
 INSERT INTO `roles` (`id_rol`, `rol`) VALUES ('1', 'admin'), ('2', 'user');
 
-
+ 
 
 create table detalles_usuario
 (
