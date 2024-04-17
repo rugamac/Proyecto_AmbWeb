@@ -14,46 +14,125 @@
 
     <div class="d-flex justify-content-between m-5">
         <div class="card border-0 bg-white" style="width:400px">
-            <a href="#modal"><img class="card-img-top"
+            <a href="#paymentModal" data-toggle="modal">
+                <img class="card-img-top"
                     src="https://grupokankun.com/wp-content/uploads/2020/02/primera-tarjeta-de-cre%CC%81dito.jpg"
                     alt="Card image" style="width:100%">
                 <div class="card-body text-center">
+                    <div class="bg-dark text-center display-6">Transferencia</div>
+                </div>
             </a>
-        </div><div class="bg-dark text-center display-6">Transferencia</div>
+        </div>
+        <br>
+
+        <div class="card border-0 bg-white" style="width:400px">
+            <a href="https://www.paypal.com/cr/webapps/mpp/payment-method" target="_blank">
+                <img class="card-img-top"
+                    src="https://pics.paypal.com/00/s/NjQwYjhjNTktNDFhZi00OGRkLWI2MzgtMmMxZmE3OTY5YzU0/file.PNG"
+                    alt="Card image" style="width:100%">
+                <div class="card-body text-center">
+                    <div class="bg-dark text-center display-6">Pagar con PayPal</div>
+                </div>
+            </a>
+        </div>
+        <br>
+
+        <div class="card border-0 bg-white" style="width:400px">
+            <a href="#" id="sinpeLink" data-toggle="modal" data-target="#sinpeModal">
+                <img class="card-img-top"
+                    src="https://play-lh.googleusercontent.com/QweCEZ_R81jSZMwQlBvX6ldqiNOZbJudyzJ6HcMOPuNt0XsjmRcXyJVWA6R7lv3RV9o"
+                    alt="Card image" style="width:100%">
+                <div class="card-body text-center">
+                    <div class="bg-dark text-center display-6">SINPE</div>
+                </div>
+            </a>
+        </div>
+        <br>
     </div>
-    <br>
-    
-    <div class="card border-0 bg-white" style="width:400px">
-        <a href="#cuentaPaypal"><img class="card-img-top"
-                src="https://pics.paypal.com/00/s/NjQwYjhjNTktNDFhZi00OGRkLWI2MzgtMmMxZmE3OTY5YzU0/file.PNG"
-                alt="Card image" style="width:100%">
-            <div class="card-body text-center">
-            
-        </a>
-    </div><div class="bg-dark text-center display-6">Pagar con PayPall</div>
+
+    <!-- Modal -->
+    <div id="paymentModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="paymentModalLabel">Payment Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="paymentForm">
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number</label>
+                            <input type="text" class="form-control" id="cardNumber" placeholder="Enter card number"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expiry">Expiry Date</label>
+                            <input type="text" class="form-control" id="expiry" placeholder="MM/YY" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" class="form-control" id="cvv" placeholder="CVV" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+                    <button type="button" class="btn btn-primary" id="payButton">Realizar Pago</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <br>
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <div class="card border-0 bg-white" style="width:400px">
-        <a href="modal"><img class="card-img-top"
-                src="https://play-lh.googleusercontent.com/QweCEZ_R81jSZMwQlBvX6ldqiNOZbJudyzJ6HcMOPuNt0XsjmRcXyJVWA6R7lv3RV9o"
-                alt="Card image" style="width:100%">
-            <div class="card-body text-center">
-        </a>
-    </div><div class="bg-dark text-center display-6">SINPE</div>
+    <script>
+        $(document).ready(function () {
+            $('#sinpeButton').popover();
+            $("#payButton").click(function () {
+                // Aquí podrías agregar la lógica para procesar el pago
+                // Puedes obtener los valores de los campos de entrada usando jQuery o JavaScript vanilla
+                var cardNumber = $("#cardNumber").val();
+                var expiry = $("#expiry").val();
+                var cvv = $("#cvv").val();
+                // Aquí deberías hacer la validación de la tarjeta y el proceso de pago
+                // Por simplicidad, aquí simplemente mostramos una alerta
+                alert("Payment processed successfully!");
+                // Cierra el modal después del pago
+                $("#paymentModal").modal('hide');
+            });
+        });
+    </script>
+    <!-- SINPE Modal -->
+    <div class="modal fade" id="sinpeModal" tabindex="-1" role="dialog" aria-labelledby="sinpeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="sinpeModalLabel">Número SINPE</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>El número SINPE para realizar la transferencia es: <strong>8888-8888</strong></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <br>
 
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    </div>
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
 
-<?php
-include "../templates/footer.php";
-?>
+</html>
